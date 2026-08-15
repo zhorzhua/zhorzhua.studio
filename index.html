@@ -34,7 +34,8 @@ body{
   background:
     repeating-linear-gradient(0deg, rgba(255,255,255,.014) 0 1px, transparent 1px 3px),
     repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 1px, transparent 1px 3px),
-    var(--bg);
+    radial-gradient(120% 90% at 50% 40%, #1d1d1d 0%, var(--bg) 55%, #121212 100%);
+  background-attachment:scroll;
   min-height:100vh;
   line-height:1.5;
   position:relative;
@@ -162,6 +163,33 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
       inset 0 1px 0 rgba(255,255,255,.18),
       inset 0 -1px 0 rgba(0,0,0,.30);
   }
+}
+/* wide screens: one composed scene — hero left, shelf right, footer across the bottom */
+@media (min-width:1024px){
+  .page{
+    max-width:1240px;
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,560px);
+    grid-template-rows:1fr auto;
+    column-gap:clamp(56px,6vw,110px);
+    padding:0 40px;
+  }
+  header{grid-column:1;grid-row:1;align-self:center;padding:96px 0 64px}
+  main{grid-column:2;grid-row:1;align-self:center;padding:96px 0 64px}
+  footer{grid-column:1/-1;grid-row:2;margin-top:0}
+  h1{font-size:clamp(3rem,3.6vw,3.9rem)}
+  .intro{font-size:1.12rem;max-width:40ch;margin-top:26px}
+  .wordmark{font-size:1rem}
+}
+/* very wide: the shelf gets presence too, not only the words */
+@media (min-width:1440px){
+  .page{grid-template-columns:minmax(0,1fr) minmax(0,620px)}
+  .app{padding:22px 24px;column-gap:20px;border-radius:30px}
+  .obj img,.mono{width:74px;height:74px}
+  .meta h3{font-size:1.24rem}
+  .meta p{font-size:1.02rem}
+  .slot{margin-bottom:20px}
 }
 @media (max-width:430px){
   .app{column-gap:14px}
