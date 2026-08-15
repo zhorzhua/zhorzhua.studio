@@ -12,3 +12,5 @@ One-page site of Zhorzhua Studio. Static: `index.html` + `icons/`. No build.
 Publish: GitHub Pages from `main` of `zhorzhua/zhorzhua.studio`, then a `CNAME` file with `zhorzhua.studio` once the domain is bought.
 
 Local look: `python3 -m http.server 8811` in this folder.
+
+Share/meta: `og.jpg` (1200×630, rendered from the hero), `apple-touch-icon.png` and `favicon.png` (the lamp). `og:image` is an absolute URL — update it when the domain moves to `zhorzhua.studio`.

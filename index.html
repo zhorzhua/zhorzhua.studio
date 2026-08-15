@@ -9,7 +9,12 @@
 <meta property="og:title" content="Zhorzhua Studio">
 <meta property="og:description" content="Simple things, done beautifully. A small iOS studio in Manorhamilton, Ireland.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1815'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23ff5a2d'/%3E%3C/svg%3E">
+<meta property="og:image" content="https://zhorzhua.github.io/zhorzhua.studio/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
@@ -268,7 +273,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 </div>
 <script>
-window.addEventListener('load',function(){
+document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('.app').forEach(function(el,i){
     setTimeout(function(){el.classList.add('in')},140+i*110);
   });
