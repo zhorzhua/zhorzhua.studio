@@ -3,7 +3,8 @@
 One-page site of Zhorzhua Studio. Static: `index.html` + `icons/`. No build.
 
 - Visual canon: Fable, AI Room FABLE-ROOM-038 (v6.3) — glass cells, lamp at the top of the page, linen + grain, letterpress text.
-- v6.4 (Asya): the lamp spot is a real element *behind* the glass (`.spot` sibling, not a pseudo inside the backdrop-filter stacking context); glass alphas lowered to matte; on touch screens the cell nearest the middle of the screen is lit (no hover there); reduced-motion honoured.
+- Current light behavior: a quiet glow is always centred behind each glass cell; hover makes it flare on pointer devices, while on touch screens the cell nearest the middle of the screen gets the stronger light as the page scrolls. The real `.spot` remains a sibling behind the glass, never a pseudo-element inside its backdrop-filter stacking context.
+- Glass alphas are lowered to matte; the lamp remains absolute at the top and is capped at 1200px so it cannot create empty scroll after the footer; every light transition is gated by reduced-motion.
 - Statuses are honest; `.store` button only with a real App Store URL.
 - Privacy links to the live HATOB page on zhorzhua.github.io (Support URL of the app under review — do not touch that repo's root).
 

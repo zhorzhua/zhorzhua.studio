@@ -35,7 +35,7 @@ body{
   position:relative;
 }
 /* the lamp: absolute at the top of the page — you walk away from it as you scroll */
-.sky{position:absolute;top:0;left:0;right:0;height:130vh;pointer-events:none;z-index:0;overflow:hidden}
+.sky{position:absolute;top:0;left:0;right:0;height:min(130vh,1200px);pointer-events:none;z-index:0;overflow:hidden}
 .sky::before,.sky::after{content:"";position:absolute;inset:0}
 .sky::before{background:
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E") repeat,
@@ -94,7 +94,6 @@ h1{
   background:radial-gradient(ellipse at 50% 50%, rgba(var(--lamp),.46), rgba(var(--lamp),.20) 48%, transparent 74%);
   filter:blur(24px);
   opacity:.34;
-  transition:opacity .55s ease;
   pointer-events:none;
 }
 .app{
@@ -140,14 +139,6 @@ h1{
   white-space:nowrap;
 }
 .chip.hot{border-color:rgba(255,90,45,.55);color:var(--accent)}
-/* App Store button — activate ONLY with a real URL:
-<a class="store" href="https://apps.apple.com/app/idXXXXXXXXX">On the App&nbsp;Store</a>
-*/
-.store{
-  display:inline-block;margin-top:10px;padding:8px 14px;border-radius:10px;
-  background:var(--accent);color:#1b0d07;font-weight:600;font-size:.9rem;text-decoration:none;
-  box-shadow:0 2px 6px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.35);
-}
 footer{border-top:1px solid var(--line);padding:34px 0 64px;margin-top:40px;color:var(--dim);font-size:.92rem}
 footer a{color:var(--dim);text-underline-offset:3px}
 footer a:hover{color:var(--ink)}
@@ -175,6 +166,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   }
 }
 @media (prefers-reduced-motion: no-preference){
+  .spot{transition:opacity .55s ease}
   .js .app{opacity:0;transform:translateY(14px)}
   .app{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease,border-color .5s ease}
   .js .app.in{opacity:1;transform:none}
