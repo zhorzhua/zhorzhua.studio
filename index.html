@@ -79,7 +79,7 @@ h1{
 .shelf-label::after{content:"";flex:1;height:1px;background:var(--line)}
 .shelf{list-style:none}
 
-/* one cell = a frosted glass panel with its light contained inside */
+/* one cell = dithered wall bounce + the original warm underlight + glass */
 .slot{position:relative;margin-bottom:18px;isolation:isolate;--bounce:255,176,99}
 .slot:nth-child(1){--bounce:224,153,153}
 .slot:nth-child(2){--bounce:205,165,211}
@@ -103,13 +103,27 @@ h1{
   transform:translateY(5px);
   pointer-events:none;
 }
+.spot{
+  position:absolute;
+  inset:-34px -42px;
+  border-radius:52px;
+  /* The original centred underlight, kept verbatim from the accepted version. */
+  background:radial-gradient(ellipse at 50% 50%,
+    rgba(var(--lamp),.31) 0%,
+    rgba(var(--lamp),.22) 34%,
+    rgba(var(--lamp),.11) 54%,
+    rgba(var(--lamp),.035) 68%,
+    transparent 82%);
+  filter:blur(18px);
+  opacity:.30;
+  transform:scale(.97);
+  pointer-events:none;
+}
 .app{
   position:relative;z-index:2;
   display:grid;grid-template-columns:auto 1fr;column-gap:18px;align-items:center;
   padding:clamp(16px,4vw,20px);
   border-radius:28px;
-  overflow:hidden;
-  isolation:isolate;
   /* matte glass a la Huelator: low white alphas, high blur, the stippled wall reads through */
   background:
     linear-gradient(115deg, rgba(255,255,255,.055), transparent 38%),
@@ -117,26 +131,13 @@ h1{
   border:1px solid rgba(255,255,255,.12);
   border-top-color:rgba(255,255,255,.30);
   box-shadow:
-    0 2px 2px rgba(0,0,0,.34),
     0 22px 34px -14px rgba(0,0,0,.45),
     inset 0 1px 0 rgba(255,255,255,.14),
     inset 0 -1px 0 rgba(0,0,0,.30);
   -webkit-backdrop-filter:blur(26px) saturate(140%);
   backdrop-filter:blur(26px) saturate(140%);
 }
-.app::before{
-  content:"";
-  position:absolute;inset:0;z-index:0;
-  border-radius:inherit;
-  background:radial-gradient(ellipse at 50% 50%,
-    rgba(var(--lamp),.18) 0%,
-    rgba(var(--lamp),.08) 48%,
-    rgba(var(--lamp),.025) 70%,
-    transparent 92%);
-  opacity:.22;
-  pointer-events:none;
-}
-.obj,.meta{position:relative;z-index:1}
+.obj{position:relative}
 .obj img,.mono{width:66px;height:66px;border-radius:24%}
 .obj img{display:block;filter:drop-shadow(0 7px 9px rgba(0,0,0,.38))}
 .mono{
@@ -173,28 +174,28 @@ footer a:hover{color:var(--ink)}
 footer .tiny{margin-top:14px;font-size:.8rem;opacity:.75}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
-/* lit = the light inside this cell is on: hover on pointer devices, the cell nearest
+/* lit = the lamp is on this cell: hover on pointer devices, the cell nearest
    the middle of the screen on touch (see script) */
 .slot.lit::before{opacity:.27}
-.slot.lit .app::before{opacity:.72}
+.slot.lit .spot{opacity:1;transform:scale(1.035)}
 .slot.lit .app{
   border-color:rgba(255,214,162,.20);
   border-top-color:rgba(255,224,178,.46);
   box-shadow:
-    0 2px 2px rgba(0,0,0,.28),
     0 24px 38px -15px rgba(0,0,0,.28),
+    0 0 22px rgba(var(--lamp),.055),
     inset 0 1px 0 rgba(255,244,225,.20),
     inset 0 -1px 0 rgba(0,0,0,.30);
 }
 @media (hover:hover){
   .slot:hover::before{opacity:.27}
-  .slot:hover .app::before{opacity:.72}
+  .slot:hover .spot{opacity:1;transform:scale(1.035)}
   .slot:hover .app{
     border-color:rgba(255,214,162,.20);
     border-top-color:rgba(255,224,178,.46);
     box-shadow:
-      0 2px 2px rgba(0,0,0,.28),
       0 24px 38px -15px rgba(0,0,0,.28),
+      0 0 22px rgba(var(--lamp),.055),
       inset 0 1px 0 rgba(255,244,225,.20),
       inset 0 -1px 0 rgba(0,0,0,.30);
   }
@@ -264,7 +265,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 }
 @media (prefers-reduced-motion: no-preference){
   .slot::before{transition:opacity .48s ease}
-  .app::before{transition:opacity .48s ease}
+  .spot{transition:opacity .48s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
   .js .app{opacity:0;transform:translateY(14px)}
   .app{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease,border-color .5s ease}
   .js .app.in{opacity:1;transform:none}
@@ -289,6 +290,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   <ul class="shelf">
 
     <li class="slot">
+      <span class="spot" aria-hidden="true"></span>
       <div class="app">
         <div class="obj">
           <img src="icons/hatob.png" alt="Hatob app icon" onerror="this.parentElement.classList.add('ph')">
@@ -302,6 +304,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     </li>
 
     <li class="slot">
+      <span class="spot" aria-hidden="true"></span>
       <div class="app">
         <div class="obj">
           <img src="icons/huelator.png" alt="Huelator app icon" onerror="this.parentElement.classList.add('ph')">
@@ -315,6 +318,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     </li>
 
     <li class="slot">
+      <span class="spot" aria-hidden="true"></span>
       <div class="app">
         <div class="obj">
           <img src="icons/financethree.png" alt="Finance Three app icon" onerror="this.parentElement.classList.add('ph')">
@@ -328,6 +332,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     </li>
 
     <li class="slot">
+      <span class="spot" aria-hidden="true"></span>
       <div class="app">
         <div class="obj">
           <img src="icons/hueshu.png" alt="Hueshu app icon" onerror="this.parentElement.classList.add('ph')">
@@ -356,7 +361,7 @@ document.addEventListener('DOMContentLoaded',function(){
     setTimeout(function(){el.classList.add('in')},140+i*110);
   });
 });
-/* Touch screens have no hover, so the internal light would never come on.
+/* Touch screens have no hover, so the lamp would never come on.
    There, the cell closest to the middle of the screen is lit — the light
    follows your eye as you scroll. Pointer devices keep plain hover. */
 (function(){
