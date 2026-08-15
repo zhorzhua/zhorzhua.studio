@@ -2,7 +2,7 @@
 
 One-page site of Zhorzhua Studio. Static: `index.html` + `icons/`. No build.
 
-- Visual canon: Fable, AI Room FABLE-ROOM-038 (v6.3) — glass cells, lamp at the top of the page, linen + grain, letterpress text.
+- Visual canon: Fable, AI Room FABLE-ROOM-038 (v6.3) — glass cells, linen + grain (the warm top lamp was cut 15.08 — pub, not studio), letterpress text.
 - Current light behavior: a quiet glow is always centred behind each glass cell; hover makes it flare on pointer devices, while on touch screens the cell nearest the middle of the screen gets the stronger light as the page scrolls. The real `.spot` remains a sibling behind the glass, never a pseudo-element inside its backdrop-filter stacking context.
 - Glass alphas are lowered to matte; the lamp remains absolute at the top and is capped at 1200px so it cannot create empty scroll after the footer; every light transition is gated by reduced-motion.
 - Grain is a single full-page layer, separate from the lamp, so its texture stays even from the hero through the footer.
