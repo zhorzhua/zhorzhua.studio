@@ -84,15 +84,16 @@ h1{
 .shelf-label::after{content:"";flex:1;height:1px;background:var(--line)}
 .shelf{list-style:none}
 
-/* one cell = a lamp spot on the wall + a frosted glass panel lying over it */
+/* one cell = a warm glow on the wall + a frosted glass panel lying over it */
 .slot{position:relative;margin-bottom:18px}
 .spot{
   position:absolute;
-  left:2%;right:2%;top:16%;bottom:-48%;
+  inset:-14% -3%;
   border-radius:50%;
-  background:radial-gradient(ellipse at 50% 55%, rgba(var(--lamp),.50), rgba(var(--lamp),.20) 45%, transparent 72%);
-  filter:blur(26px);
-  opacity:0;
+  /* even warm glow centred behind the whole panel: quiet always, stronger under the pointer */
+  background:radial-gradient(ellipse at 50% 50%, rgba(var(--lamp),.46), rgba(var(--lamp),.20) 48%, transparent 74%);
+  filter:blur(24px);
+  opacity:.34;
   transition:opacity .55s ease;
   pointer-events:none;
 }
@@ -108,7 +109,7 @@ h1{
   border:1px solid rgba(255,255,255,.12);
   border-top-color:rgba(255,255,255,.30);
   box-shadow:
-    0 22px 34px -14px rgba(0,0,0,.62),
+    0 22px 34px -14px rgba(0,0,0,.45),
     inset 0 1px 0 rgba(255,255,255,.14),
     inset 0 -1px 0 rgba(0,0,0,.30);
   -webkit-backdrop-filter:blur(26px) saturate(140%);
@@ -159,7 +160,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .slot.lit .app{
   border-top-color:rgba(255,224,178,.42);
   box-shadow:
-    0 22px 34px -14px rgba(0,0,0,.30),
+    0 22px 34px -14px rgba(0,0,0,.22),
     inset 0 1px 0 rgba(255,255,255,.18),
     inset 0 -1px 0 rgba(0,0,0,.30);
 }
@@ -168,7 +169,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   .slot:hover .app{
     border-top-color:rgba(255,224,178,.42);
     box-shadow:
-      0 22px 34px -14px rgba(0,0,0,.30),
+      0 22px 34px -14px rgba(0,0,0,.22),
       inset 0 1px 0 rgba(255,255,255,.18),
       inset 0 -1px 0 rgba(0,0,0,.30);
   }
