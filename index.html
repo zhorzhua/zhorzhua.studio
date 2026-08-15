@@ -30,7 +30,7 @@ html{-webkit-text-size-adjust:100%;background:var(--bg)}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
   color:var(--ink);
-  /* The warm woven wall from the original ChatGPT preview. */
+  /* The warm stippled wall from the original ChatGPT preview. */
   background:
     radial-gradient(ellipse 120% 92% at 50% 42%, rgba(74,55,38,.16), transparent 68%),
     var(--bg);
@@ -41,11 +41,9 @@ body{
 }
 .grain{position:absolute;inset:0;pointer-events:none;z-index:0;
   background:
-    url("linen.svg") repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='3' seed='43' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E") repeat;
-  background-size:320px 320px,180px 180px;
-  mix-blend-mode:soft-light;
-  opacity:.26}
+    radial-gradient(circle at 1px 1px,rgba(255,238,214,.065) 0 .6px,transparent .85px) 0 0/5px 5px,
+    radial-gradient(circle at 1px 1px,rgba(0,0,0,.11) 0 .65px,transparent .95px) 2px 2px/7px 7px,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='2' seed='43' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E") repeat}
 .page{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 22px}
 header{padding:clamp(64px,14vh,128px) 0 clamp(40px,7vh,64px)}
 .wordmark{
@@ -105,7 +103,7 @@ h1{
   display:grid;grid-template-columns:auto 1fr;column-gap:18px;align-items:center;
   padding:clamp(16px,4vw,20px);
   border-radius:28px;
-  /* matte glass a la Huelator: low white alphas, high blur, the linen reads through */
+  /* matte glass a la Huelator: low white alphas, high blur, the stippled wall reads through */
   background:
     linear-gradient(115deg, rgba(255,255,255,.055), transparent 38%),
     linear-gradient(rgba(255,255,255,.065), rgba(255,255,255,.028));
