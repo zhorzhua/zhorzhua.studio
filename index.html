@@ -81,28 +81,21 @@ h1{
 
 /* one cell = a frosted glass panel with its light contained inside */
 .slot{position:relative;margin-bottom:18px;isolation:isolate;--bounce:255,176,99}
+.spot{
+  position:absolute;
+  inset:-16% -4%;
+  /* even warm glow centred behind the whole panel: quiet always, stronger under the pointer.
+     No blur filter — its output bands; a long soft radial ramp the browser dithers on its own. */
+  background:radial-gradient(ellipse closest-side at 50% 50%,
+    rgba(var(--lamp),.44) 0%, rgba(var(--lamp),.40) 10%, rgba(var(--lamp),.33) 22%, rgba(var(--lamp),.25) 34%,
+    rgba(var(--lamp),.17) 46%, rgba(var(--lamp),.10) 58%, rgba(var(--lamp),.05) 68%, rgba(var(--lamp),.02) 78%, transparent 88%);
+  opacity:.12;
+  pointer-events:none;
+}
 .slot:nth-child(1){--bounce:224,153,153}
 .slot:nth-child(2){--bounce:205,165,211}
 .slot:nth-child(3){--bounce:255,176,99}
 .slot:nth-child(4){--bounce:145,181,154}
-.slot::before{
-  content:"";
-  position:absolute;z-index:0;
-  inset:-24px -44px -38px;
-  border-radius:56px;
-  /* Stochastic-looking colour bleed: the wall's own stipple catches a little
-     of each object's colour, stronger below it like indirect bounce light.
-     There is no blurred surface on which 8-bit gradient bands can form. */
-  background:
-    radial-gradient(circle at .75px .75px,rgba(var(--bounce),.54) 0 .42px,transparent .72px) 0 0/4px 4px,
-    radial-gradient(circle at .75px .75px,rgba(var(--lamp),.28) 0 .36px,transparent .68px) 2px 1px/7px 7px,
-    radial-gradient(circle at .65px .65px,rgba(255,235,210,.15) 0 .3px,transparent .62px) 1px 3px/9px 9px;
-  -webkit-mask-image:radial-gradient(ellipse 84% 92% at 50% 60%,#000 0 34%,rgba(0,0,0,.70) 56%,rgba(0,0,0,.22) 76%,transparent 94%);
-  mask-image:radial-gradient(ellipse 84% 92% at 50% 60%,#000 0 34%,rgba(0,0,0,.70) 56%,rgba(0,0,0,.22) 76%,transparent 94%);
-  opacity:.08;
-  transform:translateY(5px);
-  pointer-events:none;
-}
 .app{
   position:relative;z-index:2;
   display:grid;grid-template-columns:auto 1fr;column-gap:18px;align-items:center;
@@ -123,18 +116,6 @@ h1{
     inset 0 -1px 0 rgba(0,0,0,.30);
   -webkit-backdrop-filter:blur(26px) saturate(140%);
   backdrop-filter:blur(26px) saturate(140%);
-}
-.app::before{
-  content:"";
-  position:absolute;inset:0;z-index:0;
-  border-radius:inherit;
-  background:radial-gradient(ellipse at 50% 50%,
-    rgba(var(--lamp),.18) 0%,
-    rgba(var(--lamp),.08) 48%,
-    rgba(var(--lamp),.025) 70%,
-    transparent 92%);
-  opacity:.22;
-  pointer-events:none;
 }
 .obj,.meta{position:relative;z-index:1}
 .obj img,.mono{width:66px;height:66px;border-radius:24%}
@@ -175,8 +156,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 /* lit = the light inside this cell is on: hover on pointer devices, the cell nearest
    the middle of the screen on touch (see script) */
-.slot.lit::before{opacity:.27}
-.slot.lit .app::before{opacity:.72}
+.slot.lit .spot{opacity:1}
 .slot.lit .app{
   border-color:rgba(255,214,162,.20);
   border-top-color:rgba(255,224,178,.46);
@@ -187,8 +167,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     inset 0 -1px 0 rgba(0,0,0,.30);
 }
 @media (hover:hover){
-  .slot:hover::before{opacity:.27}
-  .slot:hover .app::before{opacity:.72}
+  .slot:hover .spot{opacity:1}
   .slot:hover .app{
     border-color:rgba(255,214,162,.20);
     border-top-color:rgba(255,224,178,.46);
@@ -263,8 +242,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   .chip{font-size:.66rem;letter-spacing:.06em;padding:2px 7px}
 }
 @media (prefers-reduced-motion: no-preference){
-  .slot::before{transition:opacity .48s ease}
-  .app::before{transition:opacity .48s ease}
+  .spot{transition:opacity .55s ease}
   .js .app{opacity:0;transform:translateY(14px)}
   .app{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease,border-color .5s ease}
   .js .app.in{opacity:1;transform:none}
@@ -289,6 +267,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   <ul class="shelf">
 
     <li class="slot">
+      <span class="spot" aria-hidden="true"></span>
       <div class="app">
         <div class="obj">
           <img src="icons/hatob.png" alt="Hatob app icon" onerror="this.parentElement.classList.add('ph')">
@@ -302,6 +281,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     </li>
 
     <li class="slot">
+      <span class="spot" aria-hidden="true"></span>
       <div class="app">
         <div class="obj">
           <img src="icons/huelator.png" alt="Huelator app icon" onerror="this.parentElement.classList.add('ph')">
@@ -315,6 +295,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     </li>
 
     <li class="slot">
+      <span class="spot" aria-hidden="true"></span>
       <div class="app">
         <div class="obj">
           <img src="icons/financethree.png" alt="Finance Three app icon" onerror="this.parentElement.classList.add('ph')">
@@ -328,6 +309,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     </li>
 
     <li class="slot">
+      <span class="spot" aria-hidden="true"></span>
       <div class="app">
         <div class="obj">
           <img src="icons/hueshu.png" alt="Hueshu app icon" onerror="this.parentElement.classList.add('ph')">
