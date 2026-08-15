@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zhorzhua Studio — simple things, done beautifully</title>
 <meta name="description" content="A small iOS studio in the northwest of Ireland. Apps that do one thing each, with almost nothing to set up.">
-<meta name="theme-color" content="#181818">
+<meta name="theme-color" content="#1b1815">
 <meta property="og:title" content="Zhorzhua Studio">
 <meta property="og:description" content="Simple things, done beautifully. A small iOS studio in Manorhamilton, Ireland.">
 <meta property="og:type" content="website">
@@ -18,10 +18,10 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
-  --bg:#181818;
-  --ink:#ebe9e4;
-  --dim:#a1a09b;
-  --line:rgba(235,233,228,.14);
+  --bg:#1b1815;
+  --ink:#ece5d8;
+  --dim:#a49a89;
+  --line:rgba(236,229,216,.14);
   --accent:#ff5a2d;
   --lamp:255,176,99; /* warm lamp light, not the accent */
 }
@@ -30,14 +30,22 @@ html{-webkit-text-size-adjust:100%;background:var(--bg)}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
   color:var(--ink);
-    background:radial-gradient(120% 90% at 50% 40%, #1d1d1d 0%, var(--bg) 55%, #121212 100%);
-  background-attachment:scroll;
+  /* The warm woven wall from the original ChatGPT preview. */
+  background:
+    radial-gradient(ellipse 120% 92% at 50% 42%, rgba(74,55,38,.16), transparent 68%),
+    var(--bg);
   min-height:100vh;
   line-height:1.5;
   position:relative;
+  overflow-x:clip;
 }
 .grain{position:absolute;inset:0;pointer-events:none;z-index:0;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E") repeat}
+  background:
+    url("linen.svg") repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='3' seed='43' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E") repeat;
+  background-size:320px 320px,180px 180px;
+  mix-blend-mode:soft-light;
+  opacity:.26}
 .page{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 22px}
 header{padding:clamp(64px,14vh,128px) 0 clamp(40px,7vh,64px)}
 .wordmark{
@@ -77,14 +85,19 @@ h1{
 .slot{position:relative;margin-bottom:18px}
 .spot{
   position:absolute;
-  inset:-16% -4%;
-  /* even warm glow centred behind the whole panel: quiet always, stronger under the pointer.
-     No blur filter — its output bands; a long soft radial ramp the browser dithers on its own. */
-  background:radial-gradient(ellipse closest-side at 50% 50%,
-    rgba(var(--lamp),.44) 0%, rgba(var(--lamp),.40) 10%, rgba(var(--lamp),.33) 22%, rgba(var(--lamp),.25) 34%,
-    rgba(var(--lamp),.17) 46%, rgba(var(--lamp),.10) 58%, rgba(var(--lamp),.05) 68%, rgba(var(--lamp),.02) 78%, transparent 88%);
-  opacity:.12;
-  transition:opacity .55s ease;
+  inset:-34px -42px;
+  border-radius:52px;
+  /* A centred underlight, already breathing at rest. Its gradient becomes
+     transparent well before the box edge, so there is never a rectangular halo. */
+  background:radial-gradient(ellipse at 50% 50%,
+    rgba(var(--lamp),.31) 0%,
+    rgba(var(--lamp),.22) 34%,
+    rgba(var(--lamp),.11) 54%,
+    rgba(var(--lamp),.035) 68%,
+    transparent 82%);
+  filter:blur(18px);
+  opacity:.30;
+  transform:scale(.97);
   pointer-events:none;
 }
 .app{
@@ -94,7 +107,6 @@ h1{
   border-radius:28px;
   /* matte glass a la Huelator: low white alphas, high blur, the linen reads through */
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='e'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23e)' opacity='0.035'/%3E%3C/svg%3E") repeat,
     linear-gradient(115deg, rgba(255,255,255,.055), transparent 38%),
     linear-gradient(rgba(255,255,255,.065), rgba(255,255,255,.028));
   border:1px solid rgba(255,255,255,.12);
@@ -145,21 +157,25 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 /* lit = the lamp is on this cell: hover on pointer devices, the cell nearest
    the middle of the screen on touch (see script) */
-.slot.lit .spot{opacity:1}
+.slot.lit .spot{opacity:1;transform:scale(1.035)}
 .slot.lit .app{
-  border-top-color:rgba(255,224,178,.42);
+  border-color:rgba(255,214,162,.20);
+  border-top-color:rgba(255,224,178,.46);
   box-shadow:
-    0 22px 34px -14px rgba(0,0,0,.22),
-    inset 0 1px 0 rgba(255,255,255,.18),
+    0 24px 38px -15px rgba(0,0,0,.28),
+    0 0 22px rgba(var(--lamp),.055),
+    inset 0 1px 0 rgba(255,244,225,.20),
     inset 0 -1px 0 rgba(0,0,0,.30);
 }
 @media (hover:hover){
-  .slot:hover .spot{opacity:1}
+  .slot:hover .spot{opacity:1;transform:scale(1.035)}
   .slot:hover .app{
-    border-top-color:rgba(255,224,178,.42);
+    border-color:rgba(255,214,162,.20);
+    border-top-color:rgba(255,224,178,.46);
     box-shadow:
-      0 22px 34px -14px rgba(0,0,0,.22),
-      inset 0 1px 0 rgba(255,255,255,.18),
+      0 24px 38px -15px rgba(0,0,0,.28),
+      0 0 22px rgba(var(--lamp),.055),
+      inset 0 1px 0 rgba(255,244,225,.20),
       inset 0 -1px 0 rgba(0,0,0,.30);
   }
 }
@@ -227,7 +243,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   .chip{font-size:.66rem;letter-spacing:.06em;padding:2px 7px}
 }
 @media (prefers-reduced-motion: no-preference){
-  .spot{transition:opacity .55s ease}
+  .spot{transition:opacity .48s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
   .js .app{opacity:0;transform:translateY(14px)}
   .app{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease,border-color .5s ease}
   .js .app.in{opacity:1;transform:none}
