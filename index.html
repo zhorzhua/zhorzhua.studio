@@ -79,8 +79,8 @@ h1{
 .shelf-label::after{content:"";flex:1;height:1px;background:var(--line)}
 .shelf{list-style:none}
 
-/* one cell = a frosted glass panel with its light contained inside */
-.slot{position:relative;margin-bottom:18px;isolation:isolate;--bounce:255,176,99}
+/* one cell = a warm glow on the wall + a frosted glass panel lying over it */
+.slot{position:relative;margin-bottom:18px;isolation:isolate}
 .spot{
   position:absolute;
   inset:-16% -4%;
@@ -92,10 +92,6 @@ h1{
   opacity:.12;
   pointer-events:none;
 }
-.slot:nth-child(1){--bounce:224,153,153}
-.slot:nth-child(2){--bounce:205,165,211}
-.slot:nth-child(3){--bounce:255,176,99}
-.slot:nth-child(4){--bounce:145,181,154}
 .app{
   position:relative;z-index:2;
   display:grid;grid-template-columns:auto 1fr;column-gap:18px;align-items:center;
