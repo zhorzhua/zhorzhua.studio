@@ -3,8 +3,8 @@
 One-page site of Zhorzhua Studio. Static: `index.html` + `icons/`. No build.
 
 - Visual canon: warm brown-black wall, fine stippled dots + grain, matte glass cells, letterpress text. There is no global top lamp and no fabric weave.
-- Current light behavior: the original soft centred underlight sits behind each glass cell and grows on pointer hover; on touch screens the cell nearest the middle of the screen gets the stronger light as the page scrolls.
-- The newer substrate treatment remains underneath it: a slightly app-tinted, asymmetric bounce appears through brighter stipple below and beside the active card. The intended combination is the original smooth panel glow plus this restrained path-traced wall response.
+- Current light behavior: a quiet glow is clipped inside each glass cell; hover strengthens it on pointer devices, while on touch screens the cell nearest the middle of the screen gets the stronger internal light as the page scrolls.
+- Outside the panel there is no smooth light gradient: the wall response is only a slightly app-tinted, asymmetric stipple below and beside the active card. This avoids colour banding/posterization on 8-bit displays.
 - The smaller fine dots and stochastic grain share one full-page layer, so the material stays even from the hero through the footer without directional threads or the 3px scanline aliasing of the earlier CSS weave.
 - Statuses are honest; `.store` button only with a real App Store URL.
 - Privacy links to the live HATOB page on zhorzhua.github.io (Support URL of the app under review — do not touch that repo's root).
