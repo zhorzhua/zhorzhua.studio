@@ -32,8 +32,8 @@ body{
   color:var(--ink);
   /* linen: two crossed 3px weaves over the warm dark ground */
   background:
-    repeating-linear-gradient(0deg, rgba(255,255,255,.024) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg, rgba(0,0,0,.068) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.014) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 1px, transparent 1px 3px),
     radial-gradient(120% 90% at 50% 40%, #1d1d1d 0%, var(--bg) 55%, #121212 100%);
   background-attachment:scroll;
   min-height:100vh;
@@ -41,11 +41,7 @@ body{
   position:relative;
 }
 .grain{position:absolute;inset:0;pointer-events:none;z-index:0;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.085'/%3E%3C/svg%3E") repeat}
-/* film over everything: dithers the glow gradients (no banding), adds a breath of density */
-.film{position:fixed;inset:0;pointer-events:none;z-index:9;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23f)' opacity='0.14'/%3E%3C/svg%3E") repeat;
-  mix-blend-mode:overlay}
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E") repeat}
 .page{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 22px}
 header{padding:clamp(64px,14vh,128px) 0 clamp(40px,7vh,64px)}
 .wordmark{
@@ -85,24 +81,24 @@ h1{
 .slot{position:relative;margin-bottom:18px}
 .spot{
   position:absolute;
-  inset:-22% -5%;
+  inset:-24% -6%;
   /* even warm glow centred behind the whole panel: quiet always, stronger under the pointer.
-     No blur filter (it bands): a soft many-stop gradient, dithered by baked-in noise, faded by a mask. */
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' seed='11' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23g)' opacity='0.16'/%3E%3C/svg%3E") repeat,
-    radial-gradient(ellipse at 50% 50%, rgba(var(--lamp),.48) 0%, rgba(var(--lamp),.40) 15%, rgba(var(--lamp),.30) 30%, rgba(var(--lamp),.20) 44%, rgba(var(--lamp),.12) 56%, rgba(var(--lamp),.06) 66%, rgba(var(--lamp),.02) 76%, transparent 86%);
-  -webkit-mask-image:radial-gradient(ellipse at 50% 50%, #000 0%, rgba(0,0,0,.85) 30%, rgba(0,0,0,.45) 55%, rgba(0,0,0,.12) 75%, transparent 90%);
-  mask-image:radial-gradient(ellipse at 50% 50%, #000 0%, rgba(0,0,0,.85) 30%, rgba(0,0,0,.45) 55%, rgba(0,0,0,.12) 75%, transparent 90%);
+     No blur filter — its output bands; a long soft radial ramp the browser dithers on its own. */
+  background:radial-gradient(ellipse at 50% 50%,
+    rgba(var(--lamp),.44) 0%, rgba(var(--lamp),.40) 10%, rgba(var(--lamp),.33) 22%, rgba(var(--lamp),.25) 34%,
+    rgba(var(--lamp),.17) 46%, rgba(var(--lamp),.10) 58%, rgba(var(--lamp),.05) 68%, rgba(var(--lamp),.02) 78%, transparent 88%);
   opacity:.34;
+  transition:opacity .55s ease;
   pointer-events:none;
 }
 .app{
-  position:relative;
+  position:relative;z-index:2;
   display:grid;grid-template-columns:auto 1fr;column-gap:18px;align-items:center;
   padding:clamp(16px,4vw,20px);
   border-radius:28px;
   /* matte glass a la Huelator: low white alphas, high blur, the linen reads through */
   background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='e'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23e)' opacity='0.035'/%3E%3C/svg%3E") repeat,
     linear-gradient(115deg, rgba(255,255,255,.055), transparent 38%),
     linear-gradient(rgba(255,255,255,.065), rgba(255,255,255,.028));
   border:1px solid rgba(255,255,255,.12);
@@ -232,7 +228,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
-<div class="film" aria-hidden="true"></div>
 <div class="page">
 
 <header>
