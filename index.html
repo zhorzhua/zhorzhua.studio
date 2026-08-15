@@ -77,10 +77,10 @@ h1{
 .slot{position:relative;margin-bottom:18px}
 .spot{
   position:absolute;
-  inset:-8% -1.5%;
+  inset:-16% -4%;
   /* even warm glow centred behind the whole panel: quiet always, stronger under the pointer.
      No blur filter — its output bands; a long soft radial ramp the browser dithers on its own. */
-  background:radial-gradient(ellipse at 50% 50%,
+  background:radial-gradient(ellipse closest-side at 50% 50%,
     rgba(var(--lamp),.44) 0%, rgba(var(--lamp),.40) 10%, rgba(var(--lamp),.33) 22%, rgba(var(--lamp),.25) 34%,
     rgba(var(--lamp),.17) 46%, rgba(var(--lamp),.10) 58%, rgba(var(--lamp),.05) 68%, rgba(var(--lamp),.02) 78%, transparent 88%);
   opacity:.12;
