@@ -32,8 +32,8 @@ body{
   color:var(--ink);
   /* linen: two crossed 3px weaves over the warm dark ground */
   background:
-    repeating-linear-gradient(0deg, rgba(255,255,255,.026) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg, rgba(0,0,0,.07) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.058) 0 1px, transparent 1px 3px),
     radial-gradient(120% 90% at 50% 40%, #1d1d1d 0%, var(--bg) 55%, #121212 100%);
   background-attachment:scroll;
   min-height:100vh;
@@ -41,10 +41,11 @@ body{
   position:relative;
 }
 .grain{position:absolute;inset:0;pointer-events:none;z-index:0;
-  /* two grains: fine (film) over coarse (paper/concrete) — density without shouting */
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E") repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.28' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23m)' opacity='0.07'/%3E%3C/svg%3E") repeat}
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E") repeat}
+/* film over everything: dithers the glow gradients (no banding), adds a breath of density */
+.film{position:fixed;inset:0;pointer-events:none;z-index:9;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23f)' opacity='0.045'/%3E%3C/svg%3E") repeat;
+  mix-blend-mode:overlay}
 .page{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 22px}
 header{padding:clamp(64px,14vh,128px) 0 clamp(40px,7vh,64px)}
 .wordmark{
@@ -87,7 +88,7 @@ h1{
   inset:-14% -3%;
   border-radius:50%;
   /* even warm glow centred behind the whole panel: quiet always, stronger under the pointer */
-  background:radial-gradient(ellipse at 50% 50%, rgba(var(--lamp),.46), rgba(var(--lamp),.20) 48%, transparent 74%);
+  background:radial-gradient(ellipse at 50% 50%, rgba(var(--lamp),.46) 0%, rgba(var(--lamp),.34) 22%, rgba(var(--lamp),.20) 46%, rgba(var(--lamp),.09) 62%, rgba(var(--lamp),.03) 72%, transparent 80%);
   filter:blur(24px);
   opacity:.34;
   pointer-events:none;
@@ -228,6 +229,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
+<div class="film" aria-hidden="true"></div>
 <div class="page">
 
 <header>
