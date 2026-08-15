@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zhorzhua Studio — simple things, done beautifully</title>
+<meta name="description" content="A small iOS studio in the northwest of Ireland. Apps that do one thing each, with almost nothing to set up.">
+<meta name="theme-color" content="#1b1815">
+<meta property="og:title" content="Zhorzhua Studio">
+<meta property="og:description" content="Simple things, done beautifully. A small iOS studio in Manorhamilton, Ireland.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1815'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23ff5a2d'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --bg:#1b1815;
+  --ink:#ece5d8;
+  --dim:#a49a89;
+  --line:rgba(236,229,216,.14);
+  --accent:#ff5a2d;
+  --lamp:255,176,99; /* warm lamp light, not the accent */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+  color:var(--ink);
+  /* linen: two crossed 3px weaves over the warm dark ground */
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.014) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 1px, transparent 1px 3px),
+    var(--bg);
+  min-height:100vh;
+  line-height:1.5;
+  position:relative;
+}
+/* the lamp: absolute at the top of the page — you walk away from it as you scroll */
+.sky{position:absolute;top:0;left:0;right:0;height:130vh;pointer-events:none;z-index:0;overflow:hidden}
+.sky::before,.sky::after{content:"";position:absolute;inset:0}
+.sky::before{background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E") repeat,
+  radial-gradient(120% 70% at 50% -10%, rgba(255,199,138,.14), transparent 60%)}
+.sky::after {background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E") repeat,
+  radial-gradient(120% 70% at 50% -10%, rgba(138,168,255,.10), transparent 60%);opacity:0}
+@media (prefers-reduced-motion: no-preference){
+  .sky::before{animation:dawn 46s ease-in-out infinite alternate}
+  .sky::after {animation:night 46s ease-in-out infinite alternate}
+  @keyframes dawn {from{opacity:1} to{opacity:.25}}
+  @keyframes night{from{opacity:0} to{opacity:.8}}
+}
+.page{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 22px}
+header{padding:clamp(64px,14vh,128px) 0 clamp(40px,7vh,64px)}
+.wordmark{
+  font-variant-caps:all-small-caps;
+  letter-spacing:.22em;
+  font-size:.95rem;
+  color:var(--dim);
+  text-shadow:0 -1px 0 rgba(0,0,0,.55), 0 1px 0 rgba(255,255,255,.05);
+}
+h1{
+  margin-top:18px;
+  font-size:clamp(2.15rem,7.6vw,3.4rem);
+  font-weight:250;
+  letter-spacing:-.02em;
+  line-height:1.12;
+  text-shadow:0 -1px 0 rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.06);
+}
+.intro{
+  margin-top:22px;
+  max-width:44ch;
+  color:var(--dim);
+  font-size:1.02rem;
+}
+.shelf-label{
+  font-variant-caps:all-small-caps;
+  letter-spacing:.22em;
+  font-size:.85rem;
+  font-weight:400;
+  color:var(--dim);
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:26px;
+}
+.shelf-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.shelf{list-style:none}
+
+/* one cell = a lamp spot on the wall + a frosted glass panel lying over it */
+.slot{position:relative;margin-bottom:18px}
+.spot{
+  position:absolute;
+  left:2%;right:2%;top:16%;bottom:-48%;
+  border-radius:50%;
+  background:radial-gradient(ellipse at 50% 55%, rgba(var(--lamp),.50), rgba(var(--lamp),.20) 45%, transparent 72%);
+  filter:blur(26px);
+  opacity:0;
+  transition:opacity .55s ease;
+  pointer-events:none;
+}
+.app{
+  position:relative;
+  display:grid;grid-template-columns:auto 1fr;column-gap:18px;align-items:center;
+  padding:clamp(16px,4vw,20px);
+  border-radius:28px;
+  /* matte glass a la Huelator: low white alphas, high blur, the linen reads through */
+  background:
+    linear-gradient(115deg, rgba(255,255,255,.055), transparent 38%),
+    linear-gradient(rgba(255,255,255,.065), rgba(255,255,255,.028));
+  border:1px solid rgba(255,255,255,.12);
+  border-top-color:rgba(255,255,255,.30);
+  box-shadow:
+    0 22px 34px -14px rgba(0,0,0,.62),
+    inset 0 1px 0 rgba(255,255,255,.14),
+    inset 0 -1px 0 rgba(0,0,0,.30);
+  -webkit-backdrop-filter:blur(26px) saturate(140%);
+  backdrop-filter:blur(26px) saturate(140%);
+}
+.obj{position:relative}
+.obj img,.mono{width:66px;height:66px;border-radius:24%}
+.obj img{display:block;filter:drop-shadow(0 7px 9px rgba(0,0,0,.38))}
+.mono{
+  display:none;place-items:center;
+  background:linear-gradient(#242019,#1a1611);
+  box-shadow:inset 0 2px 6px rgba(0,0,0,.7), inset 0 -1px 0 rgba(255,255,255,.06);
+  color:#57503f;font-size:1.8rem;font-weight:300;
+  text-shadow:0 -1px 0 rgba(0,0,0,.7), 0 1px 0 rgba(255,255,255,.05);
+}
+.obj.ph img{display:none}
+.obj.ph .mono{display:grid}
+.meta h3{
+  font-size:1.16rem;font-weight:600;letter-spacing:-.01em;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  text-shadow:0 -1px 0 rgba(0,0,0,.55), 0 1px 0 rgba(255,255,255,.05);
+}
+.meta p{color:var(--dim);margin-top:4px;font-size:.97rem}
+.chip{
+  font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--dim);
+  white-space:nowrap;
+}
+.chip.hot{border-color:rgba(255,90,45,.55);color:var(--accent)}
+/* App Store button — activate ONLY with a real URL:
+<a class="store" href="https://apps.apple.com/app/idXXXXXXXXX">On the App&nbsp;Store</a>
+*/
+.store{
+  display:inline-block;margin-top:10px;padding:8px 14px;border-radius:10px;
+  background:var(--accent);color:#1b0d07;font-weight:600;font-size:.9rem;text-decoration:none;
+  box-shadow:0 2px 6px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.35);
+}
+footer{border-top:1px solid var(--line);padding:34px 0 64px;margin-top:40px;color:var(--dim);font-size:.92rem}
+footer a{color:var(--dim);text-underline-offset:3px}
+footer a:hover{color:var(--ink)}
+footer .tiny{margin-top:14px;font-size:.8rem;opacity:.75}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* lit = the lamp is on this cell: hover on pointer devices, the cell nearest
+   the middle of the screen on touch (see script) */
+.slot.lit .spot{opacity:1}
+.slot.lit .app{
+  border-top-color:rgba(255,224,178,.42);
+  box-shadow:
+    0 22px 34px -14px rgba(0,0,0,.30),
+    inset 0 1px 0 rgba(255,255,255,.18),
+    inset 0 -1px 0 rgba(0,0,0,.30);
+}
+@media (hover:hover){
+  .slot:hover .spot{opacity:1}
+  .slot:hover .app{
+    border-top-color:rgba(255,224,178,.42);
+    box-shadow:
+      0 22px 34px -14px rgba(0,0,0,.30),
+      inset 0 1px 0 rgba(255,255,255,.18),
+      inset 0 -1px 0 rgba(0,0,0,.30);
+  }
+}
+@media (prefers-reduced-motion: no-preference){
+  .js .app{opacity:0;transform:translateY(14px)}
+  .app{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease,border-color .5s ease}
+  .js .app.in{opacity:1;transform:none}
+  @media (hover:hover){
+    .slot:hover .app{transform:translateY(-3px)}
+  }
+}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+<div class="page">
+
+<header>
+  <p class="wordmark">Zhorzhua Studio</p>
+  <h1>Simple things,<br>done beautifully.</h1>
+  <p class="intro">A small iOS studio in the northwest of Ireland. Each app does one thing, opens in a second, and has almost nothing to set up — a small object that feels good in the hand.</p>
+</header>
+
+<main>
+  <h2 class="shelf-label">The apps</h2>
+  <ul class="shelf">
+
+    <li class="slot">
+      <span class="spot" aria-hidden="true"></span>
+      <div class="app">
+        <div class="obj">
+          <img src="icons/hatob.png" alt="Hatob app icon" onerror="this.parentElement.classList.add('ph')">
+          <span class="mono" aria-hidden="true">H</span>
+        </div>
+        <div class="meta">
+          <h3>Hatob <span class="chip hot">In review</span></h3>
+          <p>300 wallpapers, dawn to night.</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="slot">
+      <span class="spot" aria-hidden="true"></span>
+      <div class="app">
+        <div class="obj">
+          <img src="icons/huelator.png" alt="Huelator app icon" onerror="this.parentElement.classList.add('ph')">
+          <span class="mono" aria-hidden="true">H</span>
+        </div>
+        <div class="meta">
+          <h3>Huelator <span class="chip">Up next</span></h3>
+          <p>A calculator for color.</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="slot">
+      <span class="spot" aria-hidden="true"></span>
+      <div class="app">
+        <div class="obj">
+          <img src="icons/financethree.png" alt="Finance Three app icon" onerror="this.parentElement.classList.add('ph')">
+          <span class="mono" aria-hidden="true">F</span>
+        </div>
+        <div class="meta">
+          <h3>Finance Three <span class="chip">In the works</span></h3>
+          <p>Received, spent, what for — five seconds a day.</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="slot">
+      <span class="spot" aria-hidden="true"></span>
+      <div class="app">
+        <div class="obj">
+          <img src="icons/hueshu.png" alt="Hueshu app icon" onerror="this.parentElement.classList.add('ph')">
+          <span class="mono" aria-hidden="true">H</span>
+        </div>
+        <div class="meta">
+          <h3>Hueshu <span class="chip">In the works</span></h3>
+          <p>Six steady noises for sleep and focus.</p>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</main>
+
+<footer>
+  <p>Zhorzhua Studio · Manorhamilton, Ireland</p>
+  <p><a href="mailto:zhorzhua.studio@gmail.com">Support</a> · <a href="https://zhorzhua.github.io/privacy.html">Privacy</a></p>
+  <p class="tiny">© 2026 Zhorzhua Studio</p>
+</footer>
+
+</div>
+<script>
+window.addEventListener('load',function(){
+  document.querySelectorAll('.app').forEach(function(el,i){
+    setTimeout(function(){el.classList.add('in')},140+i*110);
+  });
+});
+/* Touch screens have no hover, so the lamp would never come on.
+   There, the cell closest to the middle of the screen is lit — the light
+   follows your eye as you scroll. Pointer devices keep plain hover. */
+(function(){
+  if (matchMedia('(hover:hover)').matches) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var slots=[].slice.call(document.querySelectorAll('.slot')), lit=null, ticking=false;
+  function pick(){
+    ticking=false;
+    var mid=innerHeight*0.5, best=null, d=Infinity;
+    slots.forEach(function(s){
+      var r=s.getBoundingClientRect(), c=(r.top+r.bottom)/2, dd=Math.abs(c-mid);
+      if(dd<d){d=dd;best=s}
+    });
+    if(best!==lit){ if(lit)lit.classList.remove('lit'); if(best)best.classList.add('lit'); lit=best; }
+  }
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(pick); } }
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',onScroll);
+  setTimeout(pick,700);
+})();
+</script>
+</body>
+</html>
