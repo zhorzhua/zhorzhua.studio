@@ -7,7 +7,7 @@ One-page site of Zhorzhua Studio. Static: `index.html` + `icons/`. No build.
 - Outside the panel there is no glow or app-tinted response: the graphite wall remains visually uninterrupted. The internal light uses no blur, avoiding colour banding/posterization on 8-bit displays.
 - The smaller fine dots and stochastic grain share one full-page layer, so the material stays even from the hero through the footer without directional threads or the 3px scanline aliasing of the earlier CSS weave.
 - Statuses are honest; `.store` button only with a real App Store URL.
-- Privacy links to the live HATOB page on zhorzhua.github.io (Support URL of the app under review — do not touch that repo's root).
+- Privacy links to the live Hatob page on zhorzhua.github.io (Support URL of the app under review — do not touch that repo's root).
 
 Publish: GitHub Pages from `main` of `zhorzhua/zhorzhua.studio`, with `CNAME` set to `zhorzhua.studio` and DNS managed by Cloudflare.
 
