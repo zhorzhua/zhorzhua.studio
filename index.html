@@ -83,10 +83,11 @@ h1{
 .slot{position:relative;margin-bottom:18px;isolation:isolate}
 .spot{
   position:absolute;
-  inset:-16% -18%;
-  /* even warm glow centred behind the whole panel: quiet always, stronger under the pointer.
-     No blur filter — its output bands; a long soft radial ramp the browser dithers on its own. */
-  background:radial-gradient(ellipse closest-side at 50% 50%,
+  inset:0;
+  border-radius:28px;
+  /* the light lives inside the plate: box = panel box, wide soft ellipse — strong across the width,
+     fading before the side edges; no blur (bands), no spill on the wall */
+  background:radial-gradient(ellipse 72% 150% at 50% 50%,
     rgba(var(--lamp),.58) 0%, rgba(var(--lamp),.53) 10%, rgba(var(--lamp),.44) 22%, rgba(var(--lamp),.33) 34%,
     rgba(var(--lamp),.22) 46%, rgba(var(--lamp),.13) 58%, rgba(var(--lamp),.06) 68%, rgba(var(--lamp),.025) 78%, transparent 88%);
   opacity:.28;
@@ -196,6 +197,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 @media (min-width:1440px){
   .page{grid-template-columns:minmax(0,1fr) minmax(0,620px)}
   .app{padding:22px 24px;column-gap:20px;border-radius:30px}
+  .spot{border-radius:30px}
   .obj img,.mono{width:74px;height:74px}
   .meta h3{font-size:1.24rem}
   .meta p{font-size:1.02rem}
@@ -209,6 +211,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   .wordmark{font-size:1.08rem}
   .shelf-label{font-size:.95rem;margin-bottom:30px}
   .app{padding:26px 28px;column-gap:24px;border-radius:34px}
+  .spot{border-radius:34px}
   .obj img,.mono{width:84px;height:84px}
   .meta h3{font-size:1.36rem}
   .meta p{font-size:1.1rem;margin-top:6px}
@@ -224,6 +227,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   .wordmark{font-size:1.25rem;letter-spacing:.24em}
   .shelf-label{font-size:1.1rem;margin-bottom:36px}
   .app{padding:32px 34px;column-gap:28px;border-radius:40px}
+  .spot{border-radius:40px}
   .obj img,.mono{width:104px;height:104px}
   .meta h3{font-size:1.65rem;gap:14px}
   .meta p{font-size:1.32rem;margin-top:8px}
