@@ -9,8 +9,8 @@ One-page site of Zhorzhua Studio. Static: `index.html` + `icons/`. No build.
 - Statuses are honest; `.store` button only with a real App Store URL.
 - Privacy links to the live HATOB page on zhorzhua.github.io (Support URL of the app under review — do not touch that repo's root).
 
-Publish: GitHub Pages from `main` of `zhorzhua/zhorzhua.studio`, then a `CNAME` file with `zhorzhua.studio` once the domain is bought.
+Publish: GitHub Pages from `main` of `zhorzhua/zhorzhua.studio`, with `CNAME` set to `zhorzhua.studio` and DNS managed by Cloudflare.
 
 Local look: `python3 -m http.server 8811` in this folder.
 
-Share/meta: `og.jpg` (1200×630, rendered from the hero), `site-mark.svg`, `apple-touch-icon.png` and `favicon.png` (the studio monogram). `og:image` is an absolute URL — update it when the domain moves to `zhorzhua.studio`.
+Share/meta: `og.jpg` (1200×630, rendered from the hero), `site-mark.svg`, `apple-touch-icon.png` and `favicon.png` (the studio monogram). Canonical and Open Graph URLs use `https://zhorzhua.studio/`.
