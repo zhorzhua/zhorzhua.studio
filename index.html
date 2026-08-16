@@ -43,6 +43,8 @@ body{
   overflow-x:clip;
 }
 .grain{position:absolute;inset:0;pointer-events:none;z-index:0;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.42) 44px,#000 104px);
+  mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.42) 44px,#000 104px);
   background:
     radial-gradient(circle at .75px .75px,rgba(255,238,214,.06) 0 .45px,transparent .7px) 0 0/4px 4px,
     radial-gradient(circle at .75px .75px,rgba(0,0,0,.10) 0 .5px,transparent .78px) 1.5px 1.5px/6px 6px,
