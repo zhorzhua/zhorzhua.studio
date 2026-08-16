@@ -154,18 +154,6 @@ footer a:hover{color:var(--ink)}
 footer .tiny{margin-top:14px;font-size:.8rem;opacity:.75}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
-/* lit = the light inside this cell is on: hover on pointer devices, the cell nearest
-   the middle of the screen on touch (see script) */
-.slot.lit .spot{opacity:.72}
-.slot.lit .app{
-  border-color:rgba(255,214,162,.20);
-  border-top-color:rgba(255,224,178,.46);
-  box-shadow:
-    0 2px 2px rgba(0,0,0,.28),
-    0 24px 38px -15px rgba(0,0,0,.28),
-    inset 0 1px 0 rgba(255,244,225,.20),
-    inset 0 -1px 0 rgba(0,0,0,.30);
-}
 @media (hover:hover){
   .slot:hover .spot{opacity:.72}
   .slot:hover .app{
@@ -341,27 +329,6 @@ document.addEventListener('DOMContentLoaded',function(){
     setTimeout(function(){el.classList.add('in')},140+i*110);
   });
 });
-/* Touch screens have no hover, so the internal light would never come on.
-   There, the cell closest to the middle of the screen is lit — the light
-   follows your eye as you scroll. Pointer devices keep plain hover. */
-(function(){
-  if (matchMedia('(hover:hover)').matches) return;
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var slots=[].slice.call(document.querySelectorAll('.slot')), lit=null, ticking=false;
-  function pick(){
-    ticking=false;
-    var mid=innerHeight*0.5, best=null, d=Infinity;
-    slots.forEach(function(s){
-      var r=s.getBoundingClientRect(), c=(r.top+r.bottom)/2, dd=Math.abs(c-mid);
-      if(dd<d){d=dd;best=s}
-    });
-    if(best!==lit){ if(lit)lit.classList.remove('lit'); if(best)best.classList.add('lit'); lit=best; }
-  }
-  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(pick); } }
-  addEventListener('scroll',onScroll,{passive:true});
-  addEventListener('resize',onScroll);
-  setTimeout(pick,700);
-})();
 </script>
 </body>
 </html>
