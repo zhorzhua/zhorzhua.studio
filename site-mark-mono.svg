@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Zhorzhua Studio monochrome mark</title>
+  <desc id="desc">Two mirrored letter Z forms fused into an hourglass.</desc>
+  <path d="M20 24H108L20 104H108L20 24"
+        fill="none" stroke="#201d1a" stroke-width="10"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

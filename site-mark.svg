@@ -1,22 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
   <title id="title">Zhorzhua Studio</title>
+  <desc id="desc">Two mirrored letter Z forms fused into an hourglass.</desc>
   <defs>
-    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#24211e"/>
-      <stop offset="1" stop-color="#171513"/>
+    <linearGradient id="ribbon" x1="18" y1="18" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b49ab5"/>
+      <stop offset=".36" stop-color="#8fa6c3"/>
+      <stop offset=".70" stop-color="#c9826c"/>
+      <stop offset="1" stop-color="#d9a16f"/>
     </linearGradient>
-    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity=".12"/>
-      <stop offset=".48" stop-color="#ffffff" stop-opacity=".055"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity=".025"/>
-    </linearGradient>
-    <pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse">
-      <circle cx="1" cy="1" r=".38" fill="#f6ead8" fill-opacity=".09"/>
-    </pattern>
   </defs>
-  <rect width="100" height="100" rx="22" fill="url(#wall)"/>
-  <rect width="100" height="100" rx="22" fill="url(#dots)"/>
-  <rect x="17" y="17" width="66" height="66" rx="20" fill="url(#glass)" stroke="#ffffff" stroke-opacity=".18"/>
-  <path d="M31 34H69L32 66H70" fill="none" stroke="#ece5d8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="70" cy="68" r="3.5" fill="#ff5a2d"/>
+  <!-- One unbroken ribbon: a Z and its mirror sharing both horizontal rails. -->
+  <path d="M20 24H108L20 104H108L20 24"
+        fill="none" stroke="url(#ribbon)" stroke-width="10"
+        stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

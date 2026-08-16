@@ -15,9 +15,9 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://zhorzhua.studio/">
-<link rel="icon" type="image/svg+xml" href="site-mark.svg">
-<link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="site-icon.svg?v=3">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=3">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
@@ -51,6 +51,14 @@ body{
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='2' seed='43' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E") repeat}
 .page{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 22px}
 header{padding:clamp(64px,14vh,128px) 0 clamp(40px,7vh,64px)}
+.brand-lockup{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  width:42px;height:42px;display:block;flex:0 0 auto;
+  background:linear-gradient(135deg,#b49ab5 0%,#8fa6c3 36%,#c9826c 70%,#d9a16f 100%);
+  -webkit-mask:url("site-mark-mono.svg?v=2") center/contain no-repeat;
+  mask:url("site-mark-mono.svg?v=2") center/contain no-repeat;
+  filter:drop-shadow(0 -1px 0 rgba(0,0,0,.65)) drop-shadow(0 1px 0 rgba(255,255,255,.07));
+}
 .wordmark{
   font-variant-caps:all-small-caps;
   letter-spacing:.22em;
@@ -185,6 +193,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   h1{font-size:clamp(3rem,3.6vw,3.9rem)}
   .intro{font-size:1.12rem;max-width:40ch;margin-top:26px}
   .wordmark{font-size:1rem}
+  .brand-mark{width:44px;height:44px}
 }
 /* very wide: the shelf gets presence too, not only the words */
 @media (min-width:1440px){
@@ -202,6 +211,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   h1{font-size:clamp(3.9rem,3.2vw,4.8rem)}
   .intro{font-size:1.24rem;max-width:38ch;margin-top:30px}
   .wordmark{font-size:1.08rem}
+  .brand-lockup{gap:14px}
+  .brand-mark{width:48px;height:48px}
   .shelf-label{font-size:.95rem;margin-bottom:30px}
   .app{padding:26px 28px;column-gap:24px;border-radius:34px}
   .spot{border-radius:34px}
@@ -218,6 +229,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   h1{font-size:clamp(4.8rem,3.4vw,6rem)}
   .intro{font-size:1.5rem;max-width:36ch;margin-top:36px}
   .wordmark{font-size:1.25rem;letter-spacing:.24em}
+  .brand-mark{width:54px;height:54px}
   .shelf-label{font-size:1.1rem;margin-bottom:36px}
   .app{padding:32px 34px;column-gap:28px;border-radius:40px}
   .spot{border-radius:40px}
@@ -250,7 +262,10 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 <div class="page">
 
 <header>
-  <p class="wordmark">Zhorzhua Studio</p>
+  <div class="brand-lockup">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <p class="wordmark">Zhorzhua Studio</p>
+  </div>
   <h1>Simple things,<br>done beautifully.</h1>
   <p class="intro">A small iOS studio in the northwest of Ireland. Each app does one thing, opens in a second, and has almost nothing to set up — a small object that feels good in the hand.</p>
 </header>
@@ -320,7 +335,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 <footer>
   <p>Zhorzhua Studio · Manorhamilton, Ireland</p>
-  <p><a href="mailto:zhorzhua.studio@gmail.com">zhorzhua.studio@gmail.com</a> · <a href="https://zhorzhua.github.io/privacy.html">Privacy</a></p>
+  <p><a href="mailto:hello@zhorzhua.studio">hello@zhorzhua.studio</a> · <a href="https://zhorzhua.github.io/privacy.html">Privacy</a></p>
   <p class="tiny">© 2026 Zhorzhua Studio</p>
 </footer>
 

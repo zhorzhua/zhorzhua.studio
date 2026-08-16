@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Zhorzhua Studio icon</title>
+  <defs>
+    <linearGradient id="tile" x1="12" y1="8" x2="118" y2="124" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1d3035"/>
+      <stop offset="1" stop-color="#111416"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="18" y1="18" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b49ab5"/>
+      <stop offset=".36" stop-color="#8fa6c3"/>
+      <stop offset=".70" stop-color="#c9826c"/>
+      <stop offset="1" stop-color="#d9a16f"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#tile)"/>
+  <rect x="4.5" y="4.5" width="119" height="119" rx="29.5" fill="none" stroke="#fff" stroke-opacity=".16"/>
+  <path d="M25 30H103L25 98H103L25 30"
+        fill="none" stroke="url(#ribbon)" stroke-width="9"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
