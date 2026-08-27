@@ -12,8 +12,8 @@
       <stop offset="1" stop-color="#d9a16f"/>
     </linearGradient>
   </defs>
-  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#tile)"/>
-  <rect x="4.5" y="4.5" width="119" height="119" rx="29.5" fill="none" stroke="#fff" stroke-opacity=".16"/>
+  <!-- Full-bleed artwork: browsers apply their own rounded mask. -->
+  <rect width="128" height="128" fill="url(#tile)"/>
   <path d="M25 30H103L25 98H103L25 30"
         fill="none" stroke="url(#ribbon)" stroke-width="9"
         stroke-linecap="round" stroke-linejoin="round"/>
