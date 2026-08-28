@@ -5,7 +5,7 @@ One-page site of Zhorzhua Studio. Static: `index.html` + `icons/`. No build.
 - Visual canon: dark graphite wall, fine stippled dots + grain, matte glass cells, letterpress text. Warmth lives inside the app cards; there is no global top lamp and no fabric weave.
 - Current light behavior: a quiet glow is clipped inside each glass cell; hover strengthens it on pointer devices, while on touch screens the cell nearest the middle of the screen gets the stronger internal light as the page scrolls.
 - Outside the panel there is no glow or app-tinted response: the graphite wall remains visually uninterrupted. The internal light uses no blur, avoiding colour banding/posterization on 8-bit displays.
-- Fine dots and a separate neutral-luminance dither cover the full page, so the material stays even from the hero through the footer and the broad wall gradient remains smooth on 8-bit displays.
+- Fine dots and a pre-rasterized PNG grain cover a flat graphite base; the global radial gradient was removed because Safari quantized it into visible bands.
 - Statuses are honest; `.store` button only with a real App Store URL.
 - Privacy links to the live Hatob page on zhorzhua.github.io (Support URL of the app under review — do not touch that repo's root).
 
