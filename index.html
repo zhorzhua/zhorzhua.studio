@@ -33,19 +33,17 @@ html{-webkit-text-size-adjust:100%;background:var(--bg)}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
   color:var(--ink);
-  /* A flat graphite base avoids WebKit's dark-gradient quantization. */
   background:var(--bg);
   min-height:100vh;
   line-height:1.5;
   position:relative;
   overflow-x:clip;
 }
+/* Opaque bookcloth with baked thread shading and dither. Keep the material
+   on the original wall layer so glass captures the same backdrop in WebKit.
+   Its fixed repeat preserves the yarn scale at every layout breakpoint. */
 .grain{position:absolute;inset:0;pointer-events:none;z-index:0;
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.42) 44px,#000 104px);
-  mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.42) 44px,#000 104px);
-  background:
-    radial-gradient(circle at .75px .75px,rgba(255,238,214,.06) 0 .45px,transparent .7px) 0 0/4px 4px,
-    radial-gradient(circle at .75px .75px,rgba(0,0,0,.10) 0 .5px,transparent .78px) 1.5px 1.5px/6px 6px}
+  background:url("linen-weave.png?v=3") 0 0/420px 420px repeat}
 /* Pre-rasterized dither: WebKit cannot quantize this back into gradient bands. */
 .grain::after{content:"";position:absolute;inset:0;
   background:url("grain-dither.png?v=1") 0 0/256px 256px repeat}
