@@ -73,12 +73,13 @@ light += RNG.triangular(-1.2, 0, 1.2, light.shape)
 indices = np.clip(np.rint(light), 0, 63).astype(np.uint8)
 indices += weft_visible.astype(np.uint8) * 64
 palette = []
+# Deep warm brown: retain the accepted yarn geometry and baked dither.
 for warm in (False, True):
     for value in range(64):
         palette.extend((
-            round(value * (1.03 if warm else 1)),
-            round(value * 0.89),
-            round(value * 0.78 * (0.94 if warm else 1)),
+            round(value * 1.08 * (1.03 if warm else 1)),
+            round(value * 0.66),
+            round(value * 0.43 * (0.94 if warm else 1)),
         ))
 texture = Image.fromarray(indices).convert("P")
 texture.putpalette(palette)

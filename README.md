@@ -2,7 +2,7 @@
 
 One-page site of Zhorzhua Studio. Static: `index.html`, `icons/`, and image assets. No build.
 
-- Visual direction: dark warm bookcloth, matte glass cells, and letterpress text. The linen has irregular yarn spacing, thickness, twists, and alternating over/under crossings. Warmth lives inside the app cards; there is no global top lamp.
+- Visual direction: deep warm brown bookcloth, matte glass cells, and letterpress text. The linen has irregular yarn spacing, thickness, twists, and alternating over/under crossings. Light stays inside the app cards; there is no global top lamp.
 - Current light behavior: a quiet glow is clipped inside each glass cell; hover strengthens it on pointer devices, while on touch screens the cell nearest the middle of the screen gets the stronger internal light as the page scrolls.
 - Outside the panel there is no glow or app-tinted response. The internal light uses no blur; the wall has no large CSS gradient that could introduce colour banding/posterization.
 - The opaque `linen-weave.png` repeats at a fixed 420 x 420 CSS px on every screen. Its 1260 x 1260 source includes thread shading and triangular dither before quantization. The small existing PNG grain remains as a finishing layer; the old regular CSS dot grids are removed.
