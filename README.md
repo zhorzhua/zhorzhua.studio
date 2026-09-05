@@ -16,3 +16,5 @@ Local look: `python3 -m http.server 8811` in this folder.
 Rebuild the linen only when changing its design: `python3 scripts/generate_linen.py` (NumPy and Pillow). The generated PNG is checked in; the website has no runtime or build dependency on Python. Keep this texture at its fixed CSS size instead of stretching it to cover the viewport.
 
 Share/meta: `og.jpg` (1200×630, rendered from the hero), `site-mark.svg`, `apple-touch-icon.png` and `favicon.png` (the studio monogram). Canonical and Open Graph URLs use `https://zhorzhua.studio/`.
+
+Safari touch icon: `apple-touch-icon-180-v5.png`, explicitly declared at 180 x 180. Both it and the root fallback `apple-touch-icon.png` are opaque RGB PNGs with the background reaching every edge. When refreshing a previously saved icon, change the linked filename as well as its contents; saved favourites may retain their previous image until Safari refreshes it.
