@@ -2,10 +2,10 @@
 
 One-page site of Zhorzhua Studio. Static: `index.html`, `icons/`, and image assets. No build.
 
-- Visual direction: dark graphite bookcloth, matte glass cells, and letterpress text. The linen has irregular yarn spacing, thickness, twists, and alternating over/under crossings. A grayscale filter on the wall preserves its weave while removing the brown tint. Light stays warm inside the app cards; there is no global top lamp.
+- Visual direction: pure black background (`#000000`), matte glass cells, and letterpress text. The background is flat, with no texture or grain. Light stays warm inside the app cards; there is no global top lamp.
 - Current light behavior: a quiet glow is clipped inside each glass cell; hover strengthens it on pointer devices, while on touch screens the cell nearest the middle of the screen gets the stronger internal light as the page scrolls.
 - Outside the panel there is no glow or app-tinted response. The internal light uses no blur; the wall has no large CSS gradient that could introduce colour banding/posterization.
-- The opaque `linen-weave.png` repeats at a fixed 420 x 420 CSS px on every screen. Its 1260 x 1260 source includes thread shading and triangular dither before quantization. The small existing PNG grain remains as a finishing layer; the old regular CSS dot grids are removed.
+- The existing linen and grain assets are retained but are not displayed.
 - Statuses are honest; `.store` button only with a real App Store URL.
 - Privacy links to the live Hatob page on zhorzhua.github.io (Support URL of the app under review — do not touch that repo's root).
 
