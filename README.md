@@ -7,6 +7,7 @@ One-page site of Zhorzhua Studio. Static: `index.html`, `icons/`, and image asse
 - Outside the panel there is no glow or app-tinted response. The internal light uses no blur; the wall has no large CSS gradient that could introduce colour banding/posterization.
 - The existing linen and grain assets are retained but are not displayed.
 - Statuses are honest; `.store` button only with a real App Store URL.
+- The shelf lists Hatob and Huelator as Out now, and Finance Three and Wallpaper House as Coming soon. Wallpaper House uses the unchanged default icon from the WallpaperHouse app; the former Hueshu card is no longer shown.
 - Privacy links to the live Hatob page on zhorzhua.github.io (Support URL of the app under review — do not touch that repo's root).
 
 Publish: GitHub Pages from `main` of `zhorzhua/zhorzhua.studio`, with `CNAME` set to `zhorzhua.studio` and DNS managed by Cloudflare.
