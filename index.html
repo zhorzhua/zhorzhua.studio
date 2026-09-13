@@ -39,18 +39,19 @@ body{
   position:relative;
   overflow-x:clip;
 }
-/* the wall: almost black, dithered so WebKit cannot band anything laid over it */
-.wall{position:fixed;inset:0;z-index:0;pointer-events:none;background:var(--bg)}
+/* the wall: almost black; one wide, soft wash of lamp light over the words column,
+   sized in viewport units so it never tightens into a spot on big screens;
+   pre-rasterized dither on top so WebKit cannot band the glow */
+.wall{position:fixed;inset:0;z-index:0;pointer-events:none;
+  --lx:50%;--ly:26%;
+  background:
+    radial-gradient(ellipse 60vw 62vh at var(--lx) var(--ly),
+      rgba(var(--lamp),.14) 0%, rgba(var(--lamp),.10) 25%, rgba(var(--lamp),.055) 50%,
+      rgba(var(--lamp),.02) 75%, transparent 100%),
+    var(--bg)}
 .wall::after{content:"";position:absolute;inset:0;
   background:url("grain-dither.png?v=2") 0 0/256px 256px repeat;opacity:.9}
-/* one lamp, over the words: the glow belongs to the header block, so it sits on the
-   headline at every width; the grain is masked with the same ellipse, no second rectangle */
-header{position:relative;isolation:isolate}
-header::before{content:"";position:absolute;z-index:-1;pointer-events:none;
-  left:-34%;top:-28%;width:168%;height:156%;
-  background:url("grain-dither.png?v=2") 0 0/256px 256px repeat, rgba(var(--lamp),.17);
-  -webkit-mask:radial-gradient(ellipse 50% 50% at 50% 50%, #000 0%, rgba(0,0,0,.38) 45%, transparent 72%);
-  mask:radial-gradient(ellipse 50% 50% at 50% 50%, #000 0%, rgba(0,0,0,.38) 45%, transparent 72%)}
+@media (min-width:1024px){.wall{--lx:29%;--ly:50%}}
 .page{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 22px}
 header{padding:clamp(64px,14vh,128px) 0 clamp(40px,7vh,64px)}
 .brand-lockup{display:flex;align-items:center;gap:12px}
