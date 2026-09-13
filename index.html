@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Zhorzhua Studio · Simple things, done beautifully</title>
 <meta name="description" content="A small iOS studio in the northwest of Ireland. Apps that do one thing each, with almost nothing to set up.">
-<meta name="theme-color" content="#0a0908">
+<meta name="theme-color" content="#0c0a09">
 <meta property="og:title" content="Zhorzhua Studio">
 <meta property="og:description" content="Simple things, done beautifully. A small iOS studio in Manorhamilton, Ireland.">
 <meta property="og:type" content="website">
@@ -21,7 +21,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
-  --bg:#0a0908;
+  --bg:#0c0a09;
   --ink:#ece5d8;
   --dim:#a49a89;
   --line:rgba(236,229,216,.14);
@@ -39,12 +39,8 @@ body{
   position:relative;
   overflow-x:clip;
 }
-/* the wall: almost black with one wide, soft wash of lamp light over the words column.
-   Baked into a dithered raster (no CSS gradient): Safari quantizes dark gradients into bands,
-   but it cannot band pixels that already carry noise. Tall image for phones, wide for desktop. */
-.wall{position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:url("wall-lamp-tall.jpg?v=1") center/cover no-repeat var(--bg)}
-@media (min-width:1024px){.wall{background-image:url("wall-lamp-wide.jpg?v=1")}}
+/* the wall: one flat, warm, almost-black paint. No glow, no grain: Safari bands gradients and
+   noise on a phone reads as dirt. Whatever light there is lives under the glass of the cards. */
 .page{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 22px}
 header{padding:clamp(64px,14vh,128px) 0 clamp(40px,7vh,64px)}
 .brand-lockup{display:flex;align-items:center;gap:12px}
@@ -253,7 +249,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 </style>
 </head>
 <body>
-<div class="wall" aria-hidden="true"></div>
 <div class="page">
 
 <header>
