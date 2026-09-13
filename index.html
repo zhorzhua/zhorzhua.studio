@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Zhorzhua Studio — simple things, done beautifully</title>
+<title>Zhorzhua Studio · Simple things, done beautifully</title>
 <meta name="description" content="A small iOS studio in the northwest of Ireland. Apps that do one thing each, with almost nothing to set up.">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#0a0908">
 <meta property="og:title" content="Zhorzhua Studio">
 <meta property="og:description" content="Simple things, done beautifully. A small iOS studio in Manorhamilton, Ireland.">
 <meta property="og:type" content="website">
@@ -21,7 +21,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
-  --bg:#000000;
+  --bg:#0a0908;
   --ink:#ece5d8;
   --dim:#a49a89;
   --line:rgba(236,229,216,.14);
@@ -39,6 +39,15 @@ body{
   position:relative;
   overflow-x:clip;
 }
+/* the wall: almost black, the colour comes from a lamp, not from the paint;
+   pre-rasterized dither on top so WebKit cannot band the glow */
+.wall{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 60% at 18% 22%, rgba(var(--lamp),.16), rgba(var(--lamp),.06) 40%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 82% 78%, rgba(var(--lamp),.07), transparent 65%),
+    var(--bg)}
+.wall::after{content:"";position:absolute;inset:0;
+  background:url("grain-dither.png?v=2") 0 0/256px 256px repeat;opacity:.9}
 .page{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 22px}
 header{padding:clamp(64px,14vh,128px) 0 clamp(40px,7vh,64px)}
 .brand-lockup{display:flex;align-items:center;gap:12px}
@@ -247,6 +256,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 </style>
 </head>
 <body>
+<div class="wall" aria-hidden="true"></div>
 <div class="page">
 
 <header>
@@ -255,7 +265,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     <p class="wordmark">Zhorzhua Studio</p>
   </div>
   <h1>Simple things,<br>done beautifully.</h1>
-  <p class="intro">A small iOS studio in the northwest of Ireland. Each app does one thing, opens in a second, and has almost nothing to set up — a small object that feels good in the hand.</p>
+  <p class="intro">A small iOS studio in the northwest of Ireland. Each app does one thing, opens in a second, and has almost nothing to set up. A small object that feels good in the hand.</p>
 </header>
 
 <main>
@@ -301,7 +311,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
         </div>
         <div class="meta">
           <h3>Finance Three <span class="chip">Coming soon</span></h3>
-          <p>Received, spent, what for — five seconds a day.</p>
+          <p>Received, spent, what for. Five seconds a day.</p>
         </div>
       </div>
     </li>
