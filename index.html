@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Zhorzhua Studio · Simple things, done beautifully</title>
 <meta name="description" content="A small iOS studio in the northwest of Ireland. Apps that do one thing each, with almost nothing to set up.">
-<meta name="theme-color" content="#081412">
+<meta name="theme-color" content="#0c0a09">
 <meta property="og:title" content="Zhorzhua Studio">
 <meta property="og:description" content="Simple things, done beautifully. A small iOS studio in Manorhamilton, Ireland.">
 <meta property="og:type" content="website">
@@ -21,12 +21,12 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
-  --bg:#081412;
+  --bg:#0c0a09;
   --ink:#ece5d8;
   --dim:#a49a89;
   --line:rgba(236,229,216,.14);
   --accent:#ff5a2d;
-  --lamp:255,152,66; /* very warm lamp light, not the accent */
+  --lamp:255,176,99; /* warm lamp light, not the accent */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;background:var(--bg)}
@@ -39,7 +39,7 @@ body{
   position:relative;
   overflow-x:clip;
 }
-/* the wall: one flat paint, oxidised copper gone very dark (Sasha, 13.09). No glow, no grain: Safari bands gradients and
+/* the wall: one flat, warm, almost-black paint. No glow, no grain: Safari bands gradients and
    noise on a phone reads as dirt. Whatever light there is lives under the glass of the cards. */
 .page{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 22px}
 header{padding:clamp(64px,14vh,128px) 0 clamp(40px,7vh,64px)}
@@ -88,12 +88,14 @@ h1{
 .slot{position:relative;margin-bottom:18px;isolation:isolate}
 .spot{
   position:absolute;
-  inset:-30px -34px;            /* the light spills past the glass: a soft halo on the wall */
-  border-radius:60px;
-  background:radial-gradient(ellipse 58% 62% at 50% 50%,
-    rgba(var(--lamp),.62) 0%, rgba(var(--lamp),.56) 10%, rgba(var(--lamp),.46) 22%, rgba(var(--lamp),.34) 34%,
-    rgba(var(--lamp),.22) 46%, rgba(var(--lamp),.13) 58%, rgba(var(--lamp),.06) 70%, rgba(var(--lamp),.02) 82%, transparent 94%);
-  opacity:.6;
+  inset:0;
+  border-radius:28px;
+  /* the light lives inside the plate: box = panel box, wide soft ellipse — strong across the width,
+     fading before the side edges; no blur (bands), no spill on the wall */
+  background:radial-gradient(ellipse 72% 150% at 50% 50%,
+    rgba(var(--lamp),.58) 0%, rgba(var(--lamp),.53) 10%, rgba(var(--lamp),.44) 22%, rgba(var(--lamp),.33) 34%,
+    rgba(var(--lamp),.22) 46%, rgba(var(--lamp),.13) 58%, rgba(var(--lamp),.06) 68%, rgba(var(--lamp),.025) 78%, transparent 88%);
+  opacity:.28;
   pointer-events:none;
 }
 .app{
@@ -110,7 +112,6 @@ h1{
   border:1px solid rgba(255,255,255,.12);
   border-top-color:rgba(255,255,255,.30);
   box-shadow:
-    0 0 56px 6px rgba(var(--lamp),.16),   /* a light halo escaping from under the glass */
     0 2px 2px rgba(0,0,0,.34),
     0 22px 34px -14px rgba(0,0,0,.45),
     inset 0 1px 0 rgba(255,255,255,.14),
@@ -155,12 +156,11 @@ footer .tiny{margin-top:14px;font-size:.8rem;opacity:.75}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
 @media (hover:hover){
-  .slot:hover .spot{opacity:.9}
+  .slot:hover .spot{opacity:.72}
   .slot:hover .app{
     border-color:rgba(255,214,162,.20);
     border-top-color:rgba(255,224,178,.46);
     box-shadow:
-      0 0 72px 10px rgba(var(--lamp),.26),
       0 2px 2px rgba(0,0,0,.28),
       0 24px 38px -15px rgba(0,0,0,.28),
       inset 0 1px 0 rgba(255,244,225,.20),
