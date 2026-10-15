@@ -8,7 +8,9 @@ One-page site of Zhorzhua Studio. Static: `index.html`, `icons/`, and image asse
 - The existing linen and grain assets are retained but are not displayed.
 - Statuses are honest; `.store` button only with a real App Store URL.
 - The shelf lists Hatob, Huelator, Wallpaper House and Finance Three (since 30.09.2026) as Out now. Wallpaper House uses the unchanged default icon from the WallpaperHouse app; the former Hueshu card is no longer shown.
-- Privacy links to the live Hatob page on zhorzhua.github.io (Support URL of the app under review — do not touch that repo's root).
+- Footer: Support (`/support/`), Privacy (`/privacy/`, a list of every app policy; Finance Three and Wallpaper House live on this domain, Hatob and Huelator stay on zhorzhua.github.io, whose root is Hatob's Support URL — do not touch that repo's root), and the studio Instagram, TikTok, YouTube, Threads and Pinterest.
+- `/finance-three/`: product page with three App Store frames, FAQ and the press kit (`finance-three/press/`: icon, five frames, fact sheet, ZIP). Store links carry `pt=129263206` and `ct=site_*`.
+- Every visible text passes `~/.claude/skills/studio-outward-text/check_text.py` (no dashes, no periods at line ends); the hero headline keeps its period as typography.
 
 Publish: GitHub Pages from `main` of `zhorzhua/zhorzhua.studio`, with `CNAME` set to `zhorzhua.studio` and DNS managed by Cloudflare.
 

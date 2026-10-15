@@ -1,0 +1,27 @@
+Finance Three: fact sheet
+
+In short
+Finance Three is one calm budget for two people or a whole family
+Every entry shows up on every phone in the budget
+No bank to link and no sign-up: it uses the iCloud account already on each iPhone
+The month starts with a plan, and the main screen shows how much you can still spend today
+Logging spending is free, forever
+Finance Three Plus adds the shared budget, envelopes, the monthly plan and a breakdown by category
+
+Developer: Zhorzhua Studio, Manorhamilton, Ireland
+Released: 30 September 2026
+Current version: 1.2
+Platform: iPhone, iOS 26 or later
+Languages: English, French, German, Italian, Japanese, Polish, Portuguese (Brazil), Russian, Simplified Chinese, Spanish, Ukrainian
+Currencies: 31
+Price: free to download, logging is free
+Finance Three Plus: monthly or yearly, the yearly plan starts with one month free
+US prices: $3.99 a month or $24.99 a year
+One Plus covers up to six people in an Apple Family Sharing group
+Privacy: no ads, no tracking, no developer server for budget records
+App Store: https://apps.apple.com/app/id6816424120
+Web: https://zhorzhua.studio/finance-three/
+Privacy policy: https://zhorzhua.studio/finance-three/privacy.html
+
+Contact: hello@zhorzhua.studio
+Free Plus codes for reviewers on request
