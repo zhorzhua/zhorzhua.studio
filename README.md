@@ -7,8 +7,9 @@ One-page site of Zhorzhua Studio. Static: `index.html`, `icons/`, and image asse
 - Outside the panel there is no glow or app-tinted response. The internal light uses no blur; the wall has no large CSS gradient that could introduce colour banding/posterization.
 - The existing linen and grain assets are retained but are not displayed.
 - Statuses are honest; `.store` button only with a real App Store URL.
-- The shelf lists Hatob, Huelator, Wallpaper House and Finance Three (since 30.09.2026) as Out now. Wallpaper House uses the unchanged default icon from the WallpaperHouse app; the former Hueshu card is no longer shown.
+- The shelf lists Oriel (since 7.11.2026, first on the shelf), Wallpaper House, Finance Three (since 30.09.2026), Hatob and Huelator as Out now. Wallpaper House uses the unchanged default icon from the WallpaperHouse app; the former Hueshu card is no longer shown.
 - Footer: Support (`/support/`), Privacy (`/privacy/`, a list of every app policy; Finance Three and Wallpaper House live on this domain, Hatob and Huelator stay on zhorzhua.github.io, whose root is Hatob's Support URL — do not touch that repo's root), and the studio Instagram, TikTok, YouTube, Threads and Pinterest.
+- `/oriel/`: product page with three frames, FAQ, Free and Plus, and the press kit (`oriel/press/`: icon, eight frames, fact sheet, ZIP); `/oriel/privacy.html` is Oriel's privacy policy, the App Store points at it. Store links carry `ct=site_oriel`.
 - `/finance-three/`: product page with three App Store frames, FAQ and the press kit (`finance-three/press/`: icon, five frames, fact sheet, ZIP). Store links carry `pt=129263206` and `ct=site_*`.
 - Every visible text passes `~/.claude/skills/studio-outward-text/check_text.py` (no dashes, no periods at line ends); the hero headline keeps its period as typography.
 

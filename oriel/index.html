@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oriel · Every habit grows a tower</title>
+<meta name="description" content="Oriel is a habit tracker for iPhone where every habit grows a tower: each day you keep it lights a window, and when a house is finished the next one goes up on its roof">
+<meta name="theme-color" content="#000000">
+<meta name="apple-itunes-app" content="app-id=6831600824">
+<link rel="canonical" href="https://zhorzhua.studio/oriel/">
+<link rel="icon" type="image/svg+xml" href="/site-icon.svg?v=4">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180-v5.png">
+<meta property="og:title" content="Oriel · Every habit grows a tower">
+<meta property="og:description" content="Each day you keep a habit lights a window, and when a house is finished the next one goes up on its roof">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zhorzhua.studio/oriel/">
+<meta property="og:image" content="https://zhorzhua.studio/oriel/press/thumbs/01-every-habit-is-a-tower.jpg">
+<style>
+:root{
+  --bg:#000000;
+  --ink:#ece5d8;
+  --dim:#a49a89;
+  --line:rgba(236,229,216,.14);
+  --cell:rgba(236,229,216,.045);
+  --accent:#f2b84b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  min-height:100vh;
+  line-height:1.5;
+  overflow-x:clip;
+}
+.page{max-width:920px;margin:0 auto;padding:0 22px}
+header{padding:clamp(64px,14vh,128px) 0 clamp(20px,4vh,32px);display:flex;gap:22px;align-items:flex-end;flex-wrap:wrap}
+header img{width:96px;height:96px;border-radius:22px;display:block}
+.home{
+  display:inline-block;
+  font-variant-caps:all-small-caps;
+  letter-spacing:.22em;
+  font-size:.95rem;
+  color:var(--dim);
+  text-decoration:none;
+}
+.home:hover{color:var(--ink)}
+h1{
+  margin-top:10px;
+  font-size:clamp(28px,6vw,40px);
+  font-weight:600;
+  letter-spacing:-.01em;
+  line-height:1.15;
+}
+.lede{margin-top:6px;color:var(--dim);font-size:1.05rem}
+.store{
+  display:inline-block;margin-top:22px;padding:11px 20px;border-radius:12px;
+  background:var(--accent);color:#1d1406;font-weight:600;font-size:1rem;text-decoration:none;
+  box-shadow:0 2px 6px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.store-note{margin-top:10px;color:var(--dim);font-size:.9rem}
+main{padding-bottom:24px}
+h2{
+  margin:2.6em 0 .8em;
+  font-size:.8rem;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--dim);
+}
+.lines p{font-size:1.06rem;max-width:640px}
+.lines p + p{margin-top:.45em}
+a{color:var(--ink);text-decoration-thickness:1px;text-underline-offset:.22em}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* three frames: a row on wide screens, a swipeable strip on phones */
+.frames{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:6px}
+.frames figure{margin:0}
+.frames img{display:block;width:100%;height:auto;aspect-ratio:1260/2736;border-radius:18px;background:var(--cell);border:1px solid var(--line)}
+.frames figcaption{margin-top:8px;color:var(--dim);font-size:.88rem;line-height:1.35}
+@media (max-width:640px){
+  .frames{
+    display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;
+    margin:6px -22px 0;padding:0 22px 8px;scrollbar-width:none;
+  }
+  .frames::-webkit-scrollbar{display:none}
+  .frames figure{flex:0 0 68%;scroll-snap-align:center}
+}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{border:1px solid var(--line);background:var(--cell);border-radius:20px;padding:20px 22px}
+.card h3{font-size:1.05rem;font-weight:600;margin-bottom:10px}
+.card ul{list-style:none}
+.card li{color:var(--dim);font-size:.98rem;padding:3px 0 3px 1.1em;position:relative}
+.card li::before{content:"·";color:var(--ink);position:absolute;left:.15em}
+.card .tag{color:var(--accent)}
+@media (max-width:640px){.split{grid-template-columns:1fr}}
+
+.faq{max-width:680px}
+.faq details{border-top:1px solid var(--line);padding:14px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:600;font-size:1.02rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--dim);font-weight:400}
+.faq details[open] summary::after{content:"−"}
+.faq details p{color:var(--dim);margin-top:8px;font-size:.98rem}
+.faq details p + p{margin-top:.3em}
+
+dl{display:grid;grid-template-columns:max-content 1fr;gap:.45em 1.6em;font-size:1rem;max-width:680px}
+dt{color:var(--dim)}
+@media (max-width:480px){dl{grid-template-columns:1fr;gap:.1em}dd{margin-bottom:.6em}}
+.button{
+  display:inline-block;margin:4px 8px 4px 0;padding:11px 20px;border-radius:999px;
+  border:1px solid var(--line);background:var(--cell);text-decoration:none;font-weight:600
+}
+.button:hover{border-color:rgba(236,229,216,.35)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px;margin-top:18px}
+.grid a{display:block;text-decoration:none;color:var(--dim);font-size:.8rem}
+.grid img{display:block;width:100%;aspect-ratio:1260/2736;object-fit:cover;border-radius:14px;background:var(--cell)}
+.grid img.icon{aspect-ratio:1/1;border-radius:22%}
+.grid span{display:block;margin-top:6px;line-height:1.3}
+.note{margin-top:.8em;color:var(--dim);font-size:.9rem}
+@media (max-width:420px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+footer{
+  margin:56px 0 64px;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+  color:var(--dim);
+  font-size:.9rem;
+  line-height:1.7;
+}
+footer a{color:var(--dim)}
+footer a:hover{color:var(--ink)}
+footer .tiny{margin-top:10px;font-size:.8rem;opacity:.75}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <img src="press/thumbs/oriel-icon.png" alt="Oriel app icon" width="96" height="96">
+  <div>
+    <a class="home" href="/">Zhorzhua Studio</a>
+    <h1>Oriel</h1>
+    <p class="lede">Every habit grows a tower</p>
+  </div>
+</header>
+
+<main>
+  <div class="lines">
+    <p>A habit tracker for iPhone that builds a tower for every habit</p>
+    <p>Each day you keep it lights a window</p>
+    <p>When a house is finished, the next one goes up on its roof, into the clouds</p>
+  </div>
+  <a class="store" href="https://apps.apple.com/app/apple-store/id6831600824?pt=129263206&amp;ct=site_oriel&amp;mt=8" target="_blank" rel="noopener">Get it on the App Store</a>
+  <p class="store-note">Free to download, iPhone with iOS 26 or later</p>
+
+  <h2>What it is</h2>
+  <div class="lines">
+    <p>Each day you keep a habit, a window lights up in its house</p>
+    <p>Every house has its own number of windows, one for each day</p>
+    <p>When every window has had its day, the house is finished and the next one goes up on its roof</p>
+    <p>Tap today's window and the light comes on, tap it again to turn it off</p>
+    <p>A missed day stays a dark window, and the tower keeps going up</p>
+    <p>Every habit grows its own tower on your street, and no two houses are alike: a bakery, a bookshop, a flower shop, a pharmacy</p>
+    <p>The sky follows your hour with the real sun and moon, and the seasons pass over the street</p>
+    <p>Oriel speaks 11 languages, with VoiceOver and large text throughout</p>
+  </div>
+
+  <h2>Three screens</h2>
+  <div class="frames">
+    <figure>
+      <a href="press/img/01-every-habit-is-a-tower.png"><img loading="lazy" src="press/thumbs/01-every-habit-is-a-tower.jpg" alt="A habit called Read as a tower of houses rising above the clouds at dusk, a few windows lit and today's window in a gold frame" width="630" height="1368"></a>
+      <figcaption>Every habit is a tower, one window for every day you keep it</figcaption>
+    </figure>
+    <figure>
+      <a href="press/img/04-the-next-house-on-its-roof.png"><img loading="lazy" src="press/thumbs/04-the-next-house-on-its-roof.jpg" alt="A habit called Run: a finished house with roses climbing its front and a new shop on its roof, still half a pencil drawing, with today's window in a gold frame" width="630" height="1368"></a>
+      <figcaption>A finished house, and the next one going up on its roof</figcaption>
+    </figure>
+    <figure>
+      <a href="press/img/03-light-it-from-your-home-screen.png"><img loading="lazy" src="press/thumbs/03-light-it-from-your-home-screen.jpg" alt="Home Screen with three Oriel widgets for Read and Run, each showing today's window in its house" width="630" height="1368"></a>
+      <figcaption>Light today's window from the Home Screen</figcaption>
+    </figure>
+  </div>
+
+  <h2>Free and Plus</h2>
+  <div class="split">
+    <div class="card">
+      <h3>Free</h3>
+      <ul>
+        <li>Three habits, each with its own tower</li>
+        <li>Every widget, on the Home Screen and the Lock Screen</li>
+        <li>iCloud sync between your devices</li>
+        <li>A gentle reminder at the time and on the days you pick</li>
+        <li>Finished houses saved as wallpapers</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Oriel <span class="tag">Plus</span></h3>
+      <ul>
+        <li>A tower for every habit, no limit of three</li>
+        <li>A yearly subscription that starts with a free week</li>
+        <li>Or a single purchase that never renews</li>
+        <li>If Plus ends, every building and window you made stays</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">One Plus covers up to six people in your Apple Family Sharing group</p>
+
+  <h2>Questions</h2>
+  <div class="faq">
+    <details>
+      <summary>Do I need an account?</summary>
+      <p>No sign-up at all</p>
+      <p>Your towers stay with you and sync through your own iCloud</p>
+    </details>
+    <details>
+      <summary>What if I miss a day?</summary>
+      <p>That window stays dark and the tower keeps going up</p>
+      <p>Days to come are still a pencil drawing</p>
+    </details>
+    <details>
+      <summary>Can I mark a day without opening the app?</summary>
+      <p>Yes, tap today's window right in a Home Screen widget</p>
+      <p>The Building widget comes in small, medium and large, and Street shows up to three houses side by side</p>
+      <p>Lock Screen widgets show your latest days</p>
+    </details>
+    <details>
+      <summary>What does Plus cost?</summary>
+      <p>In the US it is $14.99 a year with a free week first, or $34.99 once for a purchase that never renews</p>
+      <p>The App Store shows the price in your own currency before you pay</p>
+      <p>Cancel the subscription any time in Settings › Apple Account › Subscriptions</p>
+    </details>
+    <details>
+      <summary>What happens if Plus ends?</summary>
+      <p>Every building and window you made stays</p>
+      <p>Only a new tower past the first three waits until Plus is back</p>
+    </details>
+    <details>
+      <summary>Who can see my habits?</summary>
+      <p>Only you</p>
+      <p>Your habits never reach a server of ours, and there are no ads and no tracking</p>
+      <p><a href="privacy.html">Privacy policy</a></p>
+    </details>
+  </div>
+  <p class="note">More answers on the <a href="/support/">support page</a></p>
+
+  <h2>Press kit</h2>
+  <div class="lines">
+    <p>App icon, eight App Store screens and a fact sheet</p>
+  </div>
+  <p style="margin-top:14px">
+    <a class="button" href="press/oriel-press-kit.zip">Press kit, ZIP, 22.7 MB</a>
+    <a class="button" href="press/oriel-facts.txt">Fact sheet, TXT</a>
+  </p>
+  <div class="grid">
+    <a href="press/img/oriel-icon.png"><img class="icon" loading="lazy" src="press/thumbs/oriel-icon.png" alt="Oriel app icon"><span>App icon, 1024 px</span></a>
+    <a href="press/img/01-every-habit-is-a-tower.png"><img loading="lazy" src="press/thumbs/01-every-habit-is-a-tower.jpg" alt="Every habit is a tower"><span>Every habit is a tower</span></a>
+    <a href="press/img/02-one-tap-a-day.png"><img loading="lazy" src="press/thumbs/02-one-tap-a-day.jpg" alt="One tap a day"><span>One tap a day</span></a>
+    <a href="press/img/03-light-it-from-your-home-screen.png"><img loading="lazy" src="press/thumbs/03-light-it-from-your-home-screen.jpg" alt="Light it from your Home Screen"><span>Light it from your Home Screen</span></a>
+    <a href="press/img/04-the-next-house-on-its-roof.png"><img loading="lazy" src="press/thumbs/04-the-next-house-on-its-roof.jpg" alt="The next house on its roof"><span>The next house on its roof</span></a>
+    <a href="press/img/05-built-day-by-day.png"><img loading="lazy" src="press/thumbs/05-built-day-by-day.jpg" alt="Built day by day"><span>Built day by day</span></a>
+    <a href="press/img/06-on-your-lock-screen.png"><img loading="lazy" src="press/thumbs/06-on-your-lock-screen.jpg" alt="On your Lock Screen"><span>On your Lock Screen</span></a>
+    <a href="press/img/07-a-gentle-reminder.png"><img loading="lazy" src="press/thumbs/07-a-gentle-reminder.jpg" alt="A gentle reminder"><span>A gentle reminder</span></a>
+    <a href="press/img/08-save-it-as-a-wallpaper.png"><img loading="lazy" src="press/thumbs/08-save-it-as-a-wallpaper.jpg" alt="Save it as a wallpaper"><span>Save it as a wallpaper</span></a>
+  </div>
+  <dl style="margin-top:22px">
+    <dt>Developer</dt><dd>Zhorzhua Studio, Manorhamilton, Ireland</dd>
+    <dt>Released</dt><dd>7 November 2026</dd>
+    <dt>Platform</dt><dd>iPhone, iOS 26 or later</dd>
+    <dt>Languages</dt><dd>English, French, German, Italian, Japanese, Polish, Portuguese (Brazil), Russian, Simplified Chinese, Spanish, Ukrainian</dd>
+    <dt>Contact</dt><dd><a href="mailto:hello@zhorzhua.studio">hello@zhorzhua.studio</a></dd>
+  </dl>
+  <p class="note">Free Plus codes for reviewers on request</p>
+</main>
+
+<footer>
+  <p><a href="/support/">Support</a> · <a href="/privacy/">Privacy</a> · <a href="mailto:hello@zhorzhua.studio">hello@zhorzhua.studio</a></p>
+  <p><a href="https://www.instagram.com/zhorzhua.studio/" rel="me">Instagram</a> · <a href="https://www.tiktok.com/@zhorzhua.studio" rel="me">TikTok</a> · <a href="https://www.youtube.com/@zhorzhua.studio" rel="me">YouTube</a> · <a href="https://www.threads.com/@zhorzhua.studio" rel="me">Threads</a> · <a href="https://www.pinterest.com/zhorzhuastudio/" rel="me">Pinterest</a></p>
+  <p class="tiny">© 2026 Zhorzhua Studio · Manorhamilton, Ireland</p>
+</footer>
+</div>
+</body>
+</html>

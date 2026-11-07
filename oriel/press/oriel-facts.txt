@@ -1,0 +1,33 @@
+Oriel: fact sheet
+
+In short
+Oriel is a habit tracker for iPhone where every habit grows a tower
+Each day you keep a habit, a window lights up in its house
+Every house has its own number of windows, one for each day
+When every window has had its day, the house is finished and the next one goes up on its roof
+One tap a day: tap today's window and the light comes on
+A missed day stays a dark window and the tower keeps going up
+Every habit grows its own tower on your street, and no two houses are alike
+Widgets light today's window right from the Home Screen, without opening the app
+Free: three habits, each with its own tower, every widget and iCloud
+Oriel Plus: a tower for every habit, no limit of three
+
+Developer: Zhorzhua Studio, Manorhamilton, Ireland
+Released: 7 November 2026
+Current version: 1.0
+Platform: iPhone, iOS 26 or later
+Languages: English, French, German, Italian, Japanese, Polish, Portuguese (Brazil), Russian, Simplified Chinese, Spanish, Ukrainian
+Price: free to download, three habits are free
+Oriel Plus: a yearly subscription with a free week, or a single purchase that never renews
+US prices: $14.99 a year or $34.99 once
+If Plus ends, every building and window you made stays
+One Plus covers up to six people in an Apple Family Sharing group
+Widgets: Building in small, medium and large, Street with up to three houses side by side, Lock Screen widgets with your latest days
+Accessibility: VoiceOver and large text throughout
+Privacy: no accounts, no ads, no tracking, habits sync through your own iCloud
+App Store: https://apps.apple.com/app/id6831600824
+Web: https://zhorzhua.studio/oriel/
+Privacy policy: https://zhorzhua.studio/oriel/privacy.html
+
+Contact: hello@zhorzhua.studio
+Free Plus codes for reviewers on request
