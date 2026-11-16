@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Repost = a year free · Zhorzhua Studio</title>
+<meta name="description" content="Nov 17 to Nov 30, 2026: repost our giveaway post and get a free year of Wallpaper House, Finance Three or Oriel, 100 codes per app">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5efe4" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://zhorzhua.studio/giveaway/">
+<link rel="icon" type="image/svg+xml" href="/site-icon.svg?v=4">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180-v5.png">
+<meta property="og:site_name" content="Zhorzhua Studio">
+<meta property="og:title" content="Repost = a year free">
+<meta property="og:description" content="Nov 17 to Nov 30, 2026: repost our giveaway post and get a free year of Wallpaper House, Finance Three or Oriel, 100 codes per app">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zhorzhua.studio/giveaway/">
+<meta property="og:image" content="https://zhorzhua.studio/giveaway/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Three giveaway posts: Wallpaper House, Finance Three and Oriel, Repost = a year free, Nov 17 to Nov 30, 100 codes">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --bg:#000000;
+  --ink:#ece5d8;
+  --dim:#a49a89;
+  --line:rgba(236,229,216,.14);
+  --cell:rgba(236,229,216,.045);
+  --accent:#f2b84b;
+  --accent-ink:#f2b84b;
+  --btn-ink:#1d1406;
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f5efe4;
+    --ink:#1f1a12;
+    --dim:#6e6455;
+    --line:rgba(31,26,18,.14);
+    --cell:rgba(255,255,255,.6);
+    --accent:#f2b84b;
+    --accent-ink:#9a6510;
+  }
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  min-height:100vh;
+  line-height:1.5;
+  overflow-x:clip;
+}
+.page{max-width:920px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-right)) 0 max(18px,env(safe-area-inset-left))}
+header{padding:clamp(56px,12vh,120px) 0 clamp(18px,4vh,30px)}
+.home{
+  display:inline-block;
+  font-variant-caps:all-small-caps;
+  letter-spacing:.22em;
+  font-size:.95rem;
+  color:var(--dim);
+  text-decoration:none;
+}
+.home:hover{color:var(--ink)}
+h1{
+  margin-top:10px;
+  font-size:clamp(34px,8vw,56px);
+  font-weight:650;
+  letter-spacing:-.015em;
+  line-height:1.06;
+  text-wrap:balance;
+}
+h1 em{font-style:normal;color:var(--accent-ink)}
+.lede{margin-top:12px;color:var(--dim);font-size:1.08rem;max-width:640px}
+.lede b{color:var(--ink);font-weight:600}
+
+.apps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(22px,4vh,36px)}
+.app{
+  display:flex;flex-direction:column;
+  border:1px solid var(--line);background:var(--cell);border-radius:22px;padding:14px 14px 20px;
+}
+.app .post{display:block;width:100%;height:auto;aspect-ratio:4/5;border-radius:14px;object-fit:cover;box-shadow:0 0 0 1px var(--line)}
+.app .name{display:flex;align-items:center;gap:12px;margin-top:16px;padding:0 6px}
+.app .name img{width:40px;height:40px;border-radius:10px;box-shadow:0 0 0 1px var(--line);flex:none}
+.app h3{font-size:1.12rem;font-weight:650;line-height:1.2}
+.app .prize{color:var(--accent-ink);font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
+.app p.what{margin-top:10px;padding:0 6px;color:var(--dim);font-size:.97rem;line-height:1.45}
+.app p.where{margin-top:8px;padding:0 6px;color:var(--dim);font-size:.9rem}
+.app p.where a{color:var(--ink)}
+.store{
+  display:block;margin:16px 6px 0;padding:12px 18px;border-radius:14px;text-align:center;
+  background:var(--accent);color:var(--btn-ink);font-weight:650;font-size:1rem;text-decoration:none;
+  box-shadow:0 2px 6px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.app .spacer{flex:1;min-height:16px}
+.store:active{transform:translateY(1px)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+section.block{margin-top:clamp(36px,6vh,56px);max-width:680px}
+h2{font-size:.82rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+ol.steps{list-style:none;counter-reset:s;margin-top:14px}
+ol.steps li{counter-increment:s;position:relative;padding-left:44px;font-size:1.02rem}
+ol.steps li + li{margin-top:14px}
+ol.steps li::before{
+  content:counter(s);position:absolute;left:0;top:-1px;width:30px;height:30px;border-radius:50%;
+  border:1px solid var(--line);background:var(--cell);color:var(--accent-ink);
+  display:grid;place-items:center;font-size:.9rem;font-weight:650;
+}
+ol.steps li span{display:block;color:var(--dim);font-size:.93rem;margin-top:2px}
+ul.terms{list-style:none;margin-top:14px}
+ul.terms li{color:var(--dim);font-size:.97rem;padding-left:16px;position:relative}
+ul.terms li::before{content:"";position:absolute;left:2px;top:.68em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+ul.terms li + li{margin-top:6px}
+ul.terms li b{color:var(--ink);font-weight:600}
+
+@media (max-width:780px){
+  .apps{grid-template-columns:1fr;gap:16px}
+  .app .post{max-height:none}
+}
+
+footer{
+  margin:56px 0 64px;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+  color:var(--dim);
+  font-size:.9rem;
+  line-height:1.7;
+}
+footer a{color:var(--dim)}
+footer a:hover{color:var(--ink)}
+footer .tiny{margin-top:10px;font-size:.8rem;opacity:.75}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <a class="home" href="/">Zhorzhua Studio · Giveaway</a>
+  <h1>Repost = <em>a year free</em></h1>
+  <p class="lede">Share our giveaway post and get a free year of one of our iPhone apps, <b>Nov 17 to Nov 30, 2026</b></p>
+</header>
+
+<main>
+  <div class="apps">
+    <section class="app" aria-labelledby="wh">
+      <img class="post" src="wh.jpg" alt="Wallpaper House giveaway post: Repost = a year free, dress up your lock screen all year" width="720" height="900">
+      <div class="name">
+        <img src="/icons/wallpaperhouse.png" alt="" width="40" height="40">
+        <div>
+          <h3 id="wh">Wallpaper House</h3>
+          <p class="prize">A year of House Key</p>
+        </div>
+      </div>
+      <p class="what">Fresh lock screen art every day, and House Key unlocks every wallpaper in the house</p>
+      <p class="where">Post on <a href="https://www.instagram.com/zhorzhua.studio/">Instagram</a> and <a href="https://www.tiktok.com/@zhorzhua.studio">TikTok</a></p>
+      <span class="spacer"></span>
+      <a class="store" href="https://apps.apple.com/app/id6812766610?pt=129263206&amp;ct=site_giveaway&amp;mt=8" target="_blank" rel="noopener" aria-label="Wallpaper House on the App Store">Get it on the App Store</a>
+    </section>
+
+    <section class="app" aria-labelledby="ft">
+      <img class="post" src="ft.jpg" alt="Finance Three giveaway post: Repost = a year free, your daily budget in one calm number" width="720" height="900">
+      <div class="name">
+        <img src="/icons/financethree.png" alt="" width="40" height="40">
+        <div>
+          <h3 id="ft">Finance Three</h3>
+          <p class="prize">A year of Plus</p>
+        </div>
+      </div>
+      <p class="what">Your personal daily budget: one number for what you can spend today, with no bank to link</p>
+      <p class="where">Post on <a href="https://www.threads.com/@zhorzhua.studio">Threads</a> and <a href="https://www.instagram.com/zhorzhua.studio/">Instagram</a></p>
+      <span class="spacer"></span>
+      <a class="store" href="https://apps.apple.com/app/id6816424120?pt=129263206&amp;ct=site_giveaway&amp;mt=8" target="_blank" rel="noopener" aria-label="Finance Three on the App Store">Get it on the App Store</a>
+    </section>
+
+    <section class="app" aria-labelledby="or">
+      <img class="post" src="oriel.jpg" alt="Oriel giveaway post: Repost = a year free, light a warm window for every habit" width="720" height="900">
+      <div class="name">
+        <img src="/icons/oriel.png" alt="" width="40" height="40">
+        <div>
+          <h3 id="or">Oriel</h3>
+          <p class="prize">A year of Plus</p>
+        </div>
+      </div>
+      <p class="what">A habit tracker where every habit you keep lights a window and your tower grows into the clouds</p>
+      <p class="where">Post on <a href="https://www.instagram.com/zhorzhua.studio/">Instagram</a> and <a href="https://www.threads.com/@zhorzhua.studio">Threads</a></p>
+      <span class="spacer"></span>
+      <a class="store" href="https://apps.apple.com/app/id6831600824?pt=129263206&amp;ct=site_giveaway&amp;mt=8" target="_blank" rel="noopener" aria-label="Oriel on the App Store">Get it on the App Store</a>
+    </section>
+  </div>
+
+  <section class="block" aria-labelledby="how">
+    <h2 id="how">How to get your free year</h2>
+    <ol class="steps">
+      <li>Find the giveaway post of the app you want on our profile
+        <span>Links are under each app above</span></li>
+      <li>Repost it and tag @zhorzhua.studio
+        <span>Instagram: share the post to your story with the tag</span>
+        <span>TikTok: repost the video and leave a comment under it</span>
+        <span>Threads: repost or quote the post with the tag</span></li>
+      <li>Want one for a friend too? Tag them in the same story, comment or quote
+        <span>You both get a code for a free year</span>
+        <span>Your friend gets theirs as soon as they send us a quick message</span></li>
+      <li>We send you a personal one-time link in your DMs
+        <span>Tap it and the App Store opens your free year, no code to type</span></li>
+    </ol>
+  </section>
+
+  <section class="block" aria-labelledby="terms">
+    <h2 id="terms">The fine print</h2>
+    <ul class="terms">
+      <li>Runs from <b>Nov 17 to Nov 30, 2026</b></li>
+      <li><b>100 codes per app</b>, first come first served</li>
+      <li><b>One code per person</b></li>
+      <li>Redeem your link by Dec 31, 2026</li>
+      <li>After the free year it renews at the regular price unless you switch it off in Settings</li>
+      <li>Works on iPhone with the App Store</li>
+      <li>This giveaway is not sponsored, endorsed or administered by Instagram, TikTok or Threads, and is not associated with them</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p><a href="/">Zhorzhua Studio</a> · <a href="/support/">Support</a> · <a href="/privacy/">Privacy</a> · <a href="mailto:hello@zhorzhua.studio">hello@zhorzhua.studio</a></p>
+  <p><a href="https://www.instagram.com/zhorzhua.studio/" rel="me">Instagram</a> · <a href="https://www.tiktok.com/@zhorzhua.studio" rel="me">TikTok</a> · <a href="https://www.threads.com/@zhorzhua.studio" rel="me">Threads</a></p>
+  <p class="tiny">© 2026 Zhorzhua Studio</p>
+</footer>
+</div>
+</body>
+</html>
