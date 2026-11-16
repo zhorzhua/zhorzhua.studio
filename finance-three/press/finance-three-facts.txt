@@ -5,7 +5,7 @@ Finance Three puts one number on your screen: the cash you can spend today after
 Tap the Lock Screen widget at the register, add up your receipt right on the keypad, and get on with your day
 No bank to link, no account, no ads: your records live on your phone and in iCloud
 Logging spending is free, forever
-Finance Three Plus adds the monthly plan, envelopes, fixed payments, a breakdown by category and sharing with family via iCloud
+Finance Three Plus adds the monthly plan with the daily number, envelopes, fixed payments with reminders and a breakdown by category
 
 App Store name: Finance Three: Budget Tracker
 Developer: Zhorzhua Studio, Manorhamilton, Ireland
@@ -17,7 +17,7 @@ Currencies: 31
 Price: free to download, logging is free
 Finance Three Plus: monthly or yearly, the yearly plan starts with one month free
 US prices: $3.99 a month or $24.99 a year
-One Plus covers up to six people in an Apple Family Sharing group
+Optional with Plus: share a budget with family through iCloud, one Plus covers up to six people in an Apple Family Sharing group
 Privacy: no ads, no tracking, no developer server for budget records
 App Store: https://apps.apple.com/app/id6816424120
 Web: https://zhorzhua.studio/finance-three/
