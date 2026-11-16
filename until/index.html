@@ -6,66 +6,147 @@
 <link rel="icon" type="image/svg+xml" href="../site-icon.svg?v=4">
 <link rel="icon" type="image/png" sizes="64x64" href="../favicon.png?v=4">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180-v5.png">
-<title>Until · Support</title>
-<meta name="description" content="Until, a quiet countdown to the days you wait for: help, questions and contact">
+<title>Until: Countdown Widgets · Days until Christmas and events</title>
+<meta name="description" content="Until keeps the days you are waiting for in one quiet list and in widgets on your Home Screen and Lock Screen: help, questions and contact">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="apple-itunes-app" content="app-id=6834829102">
 <link rel="canonical" href="https://zhorzhua.studio/until/">
+<meta property="og:title" content="Until: Countdown Widgets">
+<meta property="og:description" content="Count down to Christmas, New Year, a spring trip or a baby due date, each on its own quiet line">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zhorzhua.studio/until/">
+<meta property="og:image" content="https://zhorzhua.studio/until/press/thumbs/01-days-until-christmas.jpg">
 <style>
-:root{--bg:#ffffff;--ink:#000000;--dim:#6b6b6b;--line:rgba(0,0,0,.12)}
-@media (prefers-color-scheme:dark){:root{--bg:#000000;--ink:#ffffff;--dim:#9a9a9a;--line:rgba(255,255,255,.16)}}
+:root{--bg:#ffffff;--ink:#000000;--dim:#6b6b6b;--line:rgba(0,0,0,.12);--cell:rgba(0,0,0,.03)}
+@media (prefers-color-scheme:dark){:root{--bg:#000000;--ink:#ffffff;--dim:#9a9a9a;--line:rgba(255,255,255,.16);--cell:rgba(255,255,255,.05)}}
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;background:var(--bg)}
-body{font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-weight:300;color:var(--ink);background:var(--bg);min-height:100vh;line-height:1.6}
-.page{max-width:620px;margin:0 auto;padding:0 22px}
-header{padding:clamp(64px,14vh,128px) 0 clamp(28px,5vh,40px)}
+body{font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-weight:300;color:var(--ink);background:var(--bg);min-height:100vh;line-height:1.6;overflow-x:clip}
+.page{max-width:860px;margin:0 auto;padding:0 22px}
+.narrow{max-width:620px}
+header{padding:clamp(64px,14vh,128px) 0 clamp(20px,4vh,32px)}
 .home{color:var(--dim);text-decoration:none;font-size:.9rem}
 .home:hover{color:var(--ink)}
-h1{margin-top:18px;font-size:clamp(26px,6vw,34px);font-weight:300;line-height:1.2}
-.effective{margin-top:8px;color:var(--dim);font-size:.85rem}
-h2{margin:2.2em 0 .6em;font-size:.85rem;font-weight:400;color:var(--dim)}
+.title{margin-top:22px;display:flex;gap:20px;align-items:center}
+.title img{width:88px;height:88px;border-radius:22.5%;display:block;flex:0 0 auto;border:1px solid var(--line)}
+h1{font-size:clamp(24px,5.6vw,34px);font-weight:300;line-height:1.2}
+@media (max-width:480px){.title{gap:16px}.title img{width:72px;height:72px}}
+.effective{margin-top:6px;color:var(--dim);font-size:.9rem}
+h2{margin:2.6em 0 .7em;font-size:.85rem;font-weight:400;color:var(--dim)}
 p{font-size:.98rem}
 p + p{margin-top:.45em}
 a{color:var(--ink);text-decoration-thickness:1px;text-underline-offset:.22em}
+a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:4px}
 .row{display:flex;align-items:baseline;gap:10px;font-size:.98rem}
 .row .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px)}
-.rows{margin-top:26px;display:grid;gap:10px}
-footer{margin:48px 0 64px;padding-top:22px;border-top:1px solid var(--line);color:var(--dim);font-size:.85rem;line-height:1.6}
+.rows{margin-top:30px;display:grid;gap:10px}
+.lines{margin-top:28px}
+.store{
+  display:inline-block;margin-top:24px;padding:12px 20px;border-radius:12px;
+  background:var(--ink);color:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+  font-weight:600;font-size:1rem;text-decoration:none
+}
+.store-note{margin-top:10px;color:var(--dim);font-size:.85rem}
+
+/* five frames: a row on wide screens, a swipeable strip on phones */
+.frames{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:6px}
+.frames figure{margin:0}
+.frames a{display:block}
+.frames img{display:block;width:100%;height:auto;aspect-ratio:630/1368;border-radius:14px;background:var(--cell);border:1px solid var(--line)}
+@media (max-width:720px){
+  .frames{
+    display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;
+    margin:6px -22px 0;padding:0 22px 8px;scrollbar-width:none;
+  }
+  .frames::-webkit-scrollbar{display:none}
+  .frames figure{flex:0 0 58%;scroll-snap-align:center}
+}
+ul.list{list-style:none}
+ul.list li{font-size:.98rem;padding:2px 0 2px 1.4em;position:relative}
+ul.list li::before{content:"·";position:absolute;left:.3em;color:var(--dim)}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:.35em 1.6em;font-size:.95rem}
+dt{color:var(--dim)}
+@media (max-width:480px){dl{grid-template-columns:1fr;gap:.1em}dd{margin-bottom:.6em}}
+.note{margin-top:.8em;color:var(--dim);font-size:.85rem}
+footer{margin:56px 0 64px;padding-top:22px;border-top:1px solid var(--line);color:var(--dim);font-size:.85rem;line-height:1.6}
+footer a{color:var(--dim)}
+footer a:hover{color:var(--ink)}
 footer p + p{margin-top:.4em}
 </style>
 </head>
 <body>
 <div class="page">
-<header>
+<header class="narrow">
   <a class="home" href="/">Zhorzhua Studio</a>
-  <h1>until</h1>
-  <p class="effective">A quiet countdown to the days you wait for</p>
+  <div class="title">
+    <img src="press/thumbs/until-icon.png" alt="Until app icon" width="88" height="88">
+    <div>
+      <h1>Until: Countdown Widgets</h1>
+      <p class="effective">Days until Christmas &amp; events</p>
+    </div>
+  </div>
   <div class="rows" aria-hidden="true">
     <div class="row"><span>concert</span><span class="dots"></span><span>9</span></div>
-    <div class="row"><span>payday</span><span class="dots"></span><span>14</span></div>
-    <div class="row"><span>new year</span><span class="dots"></span><span>48</span></div>
+    <div class="row"><span>last day at the old job</span><span class="dots"></span><span>28</span></div>
+    <div class="row"><span>lisbon</span><span class="dots"></span><span>143</span></div>
   </div>
+  <div class="lines">
+    <p>Count down to Christmas, New Year, a spring trip or a baby due date, each on its own quiet line</p>
+    <p>Until keeps the days you are waiting for on a clean white page, or pure black in dark mode</p>
+  </div>
+  <a class="store" href="https://apps.apple.com/app/apple-store/id6834829102?pt=129263206&amp;ct=site_until&amp;mt=8" target="_blank" rel="noopener">Get it on the App Store</a>
+  <p class="store-note">Free to download, Until Full is one purchase that never renews</p>
 </header>
 
 <main>
-  <h2>adding a day</h2>
+  <h2>five screens</h2>
+  <div class="frames">
+    <figure><a href="press/img/01-days-until-christmas.png"><img loading="lazy" src="press/thumbs/01-days-until-christmas.jpg" alt="Days until Christmas: a white list with christmas 35, new year 42, lisbon 61, mum's birthday 88 and concert 117" width="630" height="1368"></a></figure>
+    <figure><a href="press/img/02-countdown-widgets.png"><img loading="lazy" src="press/thumbs/02-countdown-widgets.jpg" alt="Countdown widgets: small, medium and large Until widgets on a Home Screen" width="630" height="1368"></a></figure>
+    <figure><a href="press/img/03-white-paper-or-pure-black.png"><img loading="lazy" src="press/thumbs/03-white-paper-or-pure-black.jpg" alt="White paper or pure black: the list of days in dark mode" width="630" height="1368"></a></figure>
+    <figure><a href="press/img/04-add-a-day-in-seconds.png"><img loading="lazy" src="press/thumbs/04-add-a-day-in-seconds.jpg" alt="Add a day in seconds: a name and the month, day and year wheels" width="630" height="1368"></a></figure>
+    <figure><a href="press/img/05-today-is-the-day.png"><img loading="lazy" src="press/thumbs/05-today-is-the-day.jpg" alt="Today is the day: a morning notification for a concert on the Lock Screen" width="630" height="1368"></a></figure>
+  </div>
+
+  <div class="narrow">
+  <h2>what it does</h2>
+  <ul class="list">
+    <li>One quiet list: the name of the day, a row of dots, the number of days left</li>
+    <li>The nearest day always sits on top, and on the day itself the number becomes today</li>
+    <li>Turn on every year for birthdays, anniversaries or New Year</li>
+    <li>Small, medium and large on the Home Screen, plus three Lock Screen styles</li>
+    <li>At 9:00 on the day itself, a quiet notification brings the name of the day</li>
+    <li>8 languages, VoiceOver and large text</li>
+    <li>No account, no ads, no tracking: everything stays on your device</li>
+  </ul>
+
+  <h2>price</h2>
+  <p>Until is free for up to three days, with the small widget, the Lock Screen widgets and the morning note</p>
+  <p>Until Full is one purchase that never renews</p>
+  <p>It opens any number of days and the medium and large widgets, and Family Sharing is on</p>
+  <p class="note">The App Store shows the price in your own currency before you pay</p>
+
+  <h2 id="help">help: adding a day</h2>
   <p>Tap the plus at the bottom, type a name and turn the wheels to the date</p>
   <p>Switch on every year for birthdays and anniversaries, the year wheel folds away</p>
   <p>A yearly 29 February falls on 28 February in common years</p>
 
-  <h2>changing or deleting</h2>
+  <h2>help: changing or deleting</h2>
   <p>Tap a day in the list to rename it, move the date or delete it</p>
   <p>The cross at the top closes without saving</p>
 
-  <h2>widgets</h2>
+  <h2>help: widgets</h2>
   <p>Touch and hold the Home Screen, tap Edit, then Add Widget and find Until</p>
   <p>Left alone, a widget follows the nearest days</p>
   <p>To pin particular days, touch and hold the widget, choose Edit Widget and pick them</p>
   <p>The small widget and the three Lock Screen styles are free, medium and large come with Until Full</p>
 
-  <h2>the morning note</h2>
+  <h2>help: the morning note</h2>
   <p>On the day itself Until sends a quiet note at 9:00 with the name of the day</p>
   <p>Until asks about notifications after you save your first day, and you can change it any time in Settings, Notifications, Until</p>
 
-  <h2>until full</h2>
+  <h2>help: until full</h2>
   <p>Three days are free</p>
   <p>Until Full is a single purchase that opens any number of days and every widget size, with no subscription</p>
   <p>It works with Family Sharing</p>
@@ -75,13 +156,24 @@ footer p + p{margin-top:.4em}
   <p>Your days stay on your iPhone, Until collects nothing</p>
   <p>Read the <a href="privacy.html">privacy policy</a></p>
 
+  <h2>press</h2>
+  <p>App icon, five App Store screens and a <a href="press/until-facts.txt">fact sheet</a></p>
+  <p><a href="press/img/until-icon.png">App icon, 1024 px</a>, and every screen above opens at full size</p>
+  <dl style="margin-top:14px">
+    <dt>Developer</dt><dd>Zhorzhua Studio, Manorhamilton, Ireland</dd>
+    <dt>Released</dt><dd>16 November 2026</dd>
+    <dt>Platform</dt><dd>iPhone, iOS 26 or later</dd>
+    <dt>Languages</dt><dd>English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish, Ukrainian</dd>
+  </dl>
+
   <h2>contact</h2>
   <p>Write to <a href="mailto:hello@zhorzhua.studio">hello@zhorzhua.studio</a>, a person reads every letter</p>
+  </div>
 </main>
 
-<footer>
-  <p>Zhorzhua Studio · Manorhamilton, Ireland</p>
-  <p>© 2026 Zhorzhua Studio</p>
+<footer class="narrow">
+  <p><a href="/">Zhorzhua Studio</a> · <a href="/support/">Support</a> · <a href="/privacy/">Privacy</a> · <a href="mailto:hello@zhorzhua.studio">hello@zhorzhua.studio</a></p>
+  <p>© 2026 Zhorzhua Studio · Manorhamilton, Ireland</p>
 </footer>
 </div>
 </body>

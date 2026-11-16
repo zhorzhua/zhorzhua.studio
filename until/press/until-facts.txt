@@ -1,0 +1,27 @@
+Until: Countdown Widgets, fact sheet
+
+In short
+Until keeps the days you are waiting for in one quiet list and on your Home Screen or Lock Screen
+Count down to Christmas, New Year, a spring trip or a baby due date, each on its own quiet line
+Each row is typed in a light monospaced font: the name of the day, a row of dots, the number of days left
+The nearest day always sits on top, and on the day itself the number becomes today
+Turn on every year for birthdays, anniversaries or New Year
+Small, medium and large widgets on the Home Screen, plus three Lock Screen styles
+At 9:00 on the day itself, a quiet notification brings the name of the day
+A clean white page, or pure black in dark mode
+
+Developer: Zhorzhua Studio, Manorhamilton, Ireland
+Released: 16 November 2026
+Current version: 1.0
+Platform: iPhone, iOS 26 or later
+Languages: English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish, Ukrainian
+Price: free to download, up to three days are free with the small widget, the Lock Screen widgets and the morning note
+Until Full: one purchase that never renews, any number of days and the medium and large widgets
+Family Sharing: on for Until Full
+Accessibility: VoiceOver and large text
+Privacy: no account, no ads, no tracking, everything stays on your device
+App Store: https://apps.apple.com/app/id6834829102
+Web: https://zhorzhua.studio/until/
+Privacy policy: https://zhorzhua.studio/until/privacy.html
+
+Contact: hello@zhorzhua.studio
