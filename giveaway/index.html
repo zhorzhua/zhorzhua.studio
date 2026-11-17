@@ -96,6 +96,44 @@ h1 em{font-style:normal;color:var(--accent-ink)}
   box-shadow:0 2px 6px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.35);
 }
 .app .spacer{flex:1;min-height:16px}
+
+details.join{margin:14px 6px 0;border-top:1px solid var(--line);padding-top:12px}
+details.join summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  font-weight:650;font-size:1rem;padding:4px 0;
+}
+details.join summary::-webkit-details-marker{display:none}
+details.join summary small{display:block;color:var(--dim);font-weight:500;font-size:.88rem}
+details.join summary::after{
+  content:"";flex:none;width:9px;height:9px;margin-right:4px;
+  border-right:2px solid var(--accent-ink);border-bottom:2px solid var(--accent-ink);
+  transform:rotate(45deg) translateY(-3px);transition:transform .2s;
+}
+details.join[open] summary::after{transform:rotate(-135deg) translateY(-1px)}
+.way{margin-top:14px}
+.way + .way{margin-top:20px}
+.go{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 16px;border-radius:14px;text-decoration:none;
+  border:1.5px solid color-mix(in srgb,var(--accent-ink) 75%,transparent);background:var(--cell);color:var(--ink);font-weight:650;font-size:.98rem;
+}
+.go:active{transform:translateY(1px)}
+ol.mini{list-style:none;counter-reset:m;margin-top:10px}
+ol.mini li{counter-increment:m;position:relative;padding-left:30px;font-size:.95rem;line-height:1.4}
+ol.mini li + li{margin-top:7px}
+ol.mini li::before{
+  content:counter(m);position:absolute;left:0;top:0;width:21px;height:21px;border-radius:50%;
+  border:1px solid var(--line);color:var(--accent-ink);display:grid;place-items:center;font-size:.75rem;font-weight:650;
+}
+p.friend{margin-top:16px;color:var(--dim);font-size:.9rem}
+.apps.focused{align-items:start}
+.app.focus{border-color:color-mix(in srgb,var(--accent) 55%,transparent)}
+.app.focus > *{order:2}
+.app.focus .name{order:0;margin-top:4px}
+.app.focus .what,.app.focus .join{order:1}
+.app.focus .post{order:2;margin-top:18px}
+.app.focus .spacer,.app.focus .store{order:3}
+.app.focus .spacer{display:none}
 .store:active{transform:translateY(1px)}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
 
@@ -144,7 +182,7 @@ footer .tiny{margin-top:10px;font-size:.8rem;opacity:.75}
 
 <main>
   <div class="apps">
-    <section class="app" aria-labelledby="wh">
+    <section class="app" id="app-wh" aria-labelledby="wh">
       <img class="post" src="wh.jpg" alt="Wallpaper House giveaway post: Repost = a year free, dress up your lock screen all year" width="720" height="900">
       <div class="name">
         <img src="/icons/wallpaperhouse.png" alt="" width="40" height="40">
@@ -154,12 +192,31 @@ footer .tiny{margin-top:10px;font-size:.8rem;opacity:.75}
         </div>
       </div>
       <p class="what">Fresh lock screen art every day, and House Key unlocks every wallpaper in the house</p>
-      <p class="where">Post on <a href="https://www.instagram.com/zhorzhua.studio/">Instagram</a> and <a href="https://www.tiktok.com/@zhorzhua.studio">TikTok</a></p>
+      <details class="join" id="join-wh">
+        <summary><span>How to join<small>On Instagram or TikTok</small></span></summary>
+        <div class="way">
+          <a class="go" href="https://www.instagram.com/zhorzhua.studio/p/Df145DEgLeS/" target="_blank" rel="noopener">Open the post on Instagram</a>
+          <ol class="mini" aria-label="Instagram steps">
+            <li>Share the post to your story</li>
+            <li>Tag @zhorzhua.studio in the story</li>
+            <li>We DM you a personal one-time link for your free year</li>
+          </ol>
+        </div>
+        <div class="way">
+          <a class="go" href="https://www.tiktok.com/@zhorzhua.studio/photo/7709112689976511766" target="_blank" rel="noopener">Open the post on TikTok</a>
+          <ol class="mini" aria-label="TikTok steps">
+            <li>Repost the post</li>
+            <li>Leave a comment under it</li>
+            <li>We DM you a personal one-time link for your free year</li>
+          </ol>
+        </div>
+        <p class="friend">Tag a friend in the same story or comment and you both get a code for a free year</p>
+      </details>
       <span class="spacer"></span>
       <a class="store" href="https://apps.apple.com/app/id6812766610?pt=129263206&amp;ct=site_giveaway&amp;mt=8" target="_blank" rel="noopener" aria-label="Wallpaper House on the App Store">Get it on the App Store</a>
     </section>
 
-    <section class="app" aria-labelledby="ft">
+    <section class="app" id="app-ft" aria-labelledby="ft">
       <img class="post" src="ft.jpg" alt="Finance Three giveaway post: Repost = a year free, your daily budget in one calm number" width="720" height="900">
       <div class="name">
         <img src="/icons/financethree.png" alt="" width="40" height="40">
@@ -169,12 +226,31 @@ footer .tiny{margin-top:10px;font-size:.8rem;opacity:.75}
         </div>
       </div>
       <p class="what">Your personal daily budget: one number for what you can spend today, with no bank to link</p>
-      <p class="where">Post on <a href="https://www.threads.com/@zhorzhua.studio">Threads</a> and <a href="https://www.instagram.com/zhorzhua.studio/">Instagram</a></p>
+      <details class="join" id="join-ft">
+        <summary><span>How to join<small>On Instagram or Threads</small></span></summary>
+        <div class="way">
+          <a class="go" href="https://www.instagram.com/zhorzhua.studio/p/Df2AIpYgAws/" target="_blank" rel="noopener">Open the post on Instagram</a>
+          <ol class="mini" aria-label="Instagram steps">
+            <li>Share the post to your story</li>
+            <li>Tag @zhorzhua.studio in the story</li>
+            <li>We DM you a personal one-time link for your free year</li>
+          </ol>
+        </div>
+        <div class="way">
+          <a class="go" href="https://www.threads.com/@zhorzhua.studio/post/Df16RycAh5J" target="_blank" rel="noopener">Open the post on Threads</a>
+          <ol class="mini" aria-label="Threads steps">
+            <li>Repost or quote the post</li>
+            <li>Tag @zhorzhua.studio in your quote or in a reply</li>
+            <li>We DM you a personal one-time link for your free year</li>
+          </ol>
+        </div>
+        <p class="friend">Tag a friend in the same story or quote and you both get a code for a free year</p>
+      </details>
       <span class="spacer"></span>
       <a class="store" href="https://apps.apple.com/app/id6816424120?pt=129263206&amp;ct=site_giveaway&amp;mt=8" target="_blank" rel="noopener" aria-label="Finance Three on the App Store">Get it on the App Store</a>
     </section>
 
-    <section class="app" aria-labelledby="or">
+    <section class="app" id="app-oriel" aria-labelledby="or">
       <img class="post" src="oriel.jpg" alt="Oriel giveaway post: Repost = a year free, light a warm window for every habit" width="720" height="900">
       <div class="name">
         <img src="/icons/oriel.png" alt="" width="40" height="40">
@@ -184,7 +260,26 @@ footer .tiny{margin-top:10px;font-size:.8rem;opacity:.75}
         </div>
       </div>
       <p class="what">A habit tracker where every habit you keep lights a window and your tower grows into the clouds</p>
-      <p class="where">Post on <a href="https://www.instagram.com/zhorzhua.studio/">Instagram</a> and <a href="https://www.threads.com/@zhorzhua.studio">Threads</a></p>
+      <details class="join" id="join-oriel">
+        <summary><span>How to join<small>On Instagram or Threads</small></span></summary>
+        <div class="way">
+          <a class="go" href="https://www.instagram.com/zhorzhua.studio/p/Df2HakCgGT7/" target="_blank" rel="noopener">Open the post on Instagram</a>
+          <ol class="mini" aria-label="Instagram steps">
+            <li>Share the post to your story</li>
+            <li>Tag @zhorzhua.studio in the story</li>
+            <li>We DM you a personal one-time link for your free year</li>
+          </ol>
+        </div>
+        <div class="way">
+          <a class="go" href="https://www.threads.com/@zhorzhua.studio/post/Df16YlEgpq3" target="_blank" rel="noopener">Open the post on Threads</a>
+          <ol class="mini" aria-label="Threads steps">
+            <li>Repost or quote the post</li>
+            <li>Tag @zhorzhua.studio in your quote or in a reply</li>
+            <li>We DM you a personal one-time link for your free year</li>
+          </ol>
+        </div>
+        <p class="friend">Tag a friend in the same story or quote and you both get a code for a free year</p>
+      </details>
       <span class="spacer"></span>
       <a class="store" href="https://apps.apple.com/app/id6831600824?pt=129263206&amp;ct=site_giveaway&amp;mt=8" target="_blank" rel="noopener" aria-label="Oriel on the App Store">Get it on the App Store</a>
     </section>
@@ -194,10 +289,10 @@ footer .tiny{margin-top:10px;font-size:.8rem;opacity:.75}
     <h2 id="how">How to get your free year</h2>
     <ol class="steps">
       <li>Find the giveaway post of the app you want on our profile
-        <span>Links are under each app above</span></li>
+        <span>Open How to join under each app above</span></li>
       <li>Repost it and tag @zhorzhua.studio
         <span>Instagram: share the post to your story with the tag</span>
-        <span>TikTok: repost the video and leave a comment under it</span>
+        <span>TikTok: repost the post and leave a comment under it</span>
         <span>Threads: repost or quote the post with the tag</span></li>
       <li>Want one for a friend too? Tag them in the same story, comment or quote
         <span>You both get a code for a free year</span>
@@ -217,6 +312,7 @@ footer .tiny{margin-top:10px;font-size:.8rem;opacity:.75}
       <li>After the free year it renews at the regular price unless you switch it off in Settings</li>
       <li>Works on iPhone with the App Store</li>
       <li>This giveaway is not sponsored, endorsed or administered by Instagram, TikTok or Threads, and is not associated with them</li>
+      <li>Apple is not a sponsor of this giveaway and is not involved in it</li>
     </ul>
   </section>
 </main>
@@ -227,5 +323,19 @@ footer .tiny{margin-top:10px;font-size:.8rem;opacity:.75}
   <p class="tiny">© 2026 Zhorzhua Studio</p>
 </footer>
 </div>
+<script>
+(function(){
+  var ids={wh:"app-wh",ft:"app-ft",oriel:"app-oriel"};
+  var app=(new URLSearchParams(location.search).get("app")||"").toLowerCase();
+  var card=ids.hasOwnProperty(app)&&document.getElementById(ids[app]);
+  if(!card)return;
+  var grid=card.parentNode;
+  grid.insertBefore(card,grid.firstChild);
+  grid.classList.add("focused");
+  card.classList.add("focus");
+  var d=card.querySelector("details.join");
+  if(d)d.open=true;
+})();
+</script>
 </body>
 </html>
